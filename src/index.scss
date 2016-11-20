@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300');
+
+body {
+    font-family: 'Oxygen';
+    letter-spacing: 0.25px;
+    font-weight: light;
+    color: #0D1921;
+}
+
+.intro.section {
+    flex-direction: column;
+}
+
+.section {
+    height: 100vh;
+    width: 100vw;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery .image {
+    max-height: calc(100vh - 100px);
+    max-width: calc(90vw - 30px);
+    box-shadow: 0 0 50px rgba(0,0,0,0.05), 0 8px 10px rgba(0,0,0,0.03);
+    border: 1px solid white;
+}
+
+.gallery .sidebar {
+    position: absolute;
+    right: 5vw;
+    margin-top: 10vh;
+}
+
+[data-aos="fade-in"] {
+  opacity: 0;
+  transition: 0.5s all ease;
+}
+[data-aos="fade-in-long"] {
+  opacity: 0;
+  transition: 2s all ease;
+}
+[data-aos="slide-up"] {
+    line-height: 0;
+    overflow: hidden;
+    transition: 1s all ease;
+}
+
+.headline {
+    font-size: 24px;
+}
+.gallery .headline {
+    opacity: 0;
+    padding: 0 5px;
+    z-index: 100;
+}
+
+.subtitle {
+    padding: 5px 5px;
+    margin-top: 1px;
+    font-size: 12px;
+}
+.gallery .subtitle {
+    opacity: 0;
+    min-width: 150px;
+}
+
+.sidebar .moreInfo {
+    margin-top: 25px;
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: rgba(255,255,255,0.75);
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}
+
+.scrollIcon {
+    text-align: center;
+    height: 48px;
+    margin-top: -15vh;
+    cursor: pointer;
+}
+.scrollArrows {
+    margin: 0 auto;
+    width: 24px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    animation: 0.5s all ease-in-out;
+    &:hover {
+        background: #F6F6F6;
+        animation: 0.5s all ease-in-out;
+    }
+}
+.scrollArrows svg {
+    @keyframes opacity-wave {
+        0%,
+        80%,
+        100% { opacity: 0; }
+
+        40%,
+        50%  { opacity: 1; }
+    }
+
+    width: 12px;
+    height: 12px;
+    display: block;
+    animation-timing-function: ease-in-out;
+    animation: opacity-wave 2s infinite;
+
+    &:nth-of-type(2) {
+        animation-delay: 0.25s;
+    }
+
+    &:nth-of-type(3) {
+        animation-delay: 0.50s;
+    }
+}
