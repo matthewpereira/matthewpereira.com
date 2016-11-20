@@ -3,6 +3,7 @@ import styles       from './index.scss';
 import React        from 'react';
 import Intro        from './Intro.jsx';
 import Gallery      from './Gallery.jsx';
+import GalleryImages from './GalleryImages.js';
 import ScrollArrow  from './ScrollArrow.jsx';
 import $            from 'jquery';
 
@@ -40,7 +41,7 @@ export default class App extends React.Component {
 			<div>
 				<Intro/>
                 { this.state.showScroll ? <ScrollArrow />: null }
-				<Gallery/>
+				<Gallery images={GalleryImages} />
             </div>
         )
     }
