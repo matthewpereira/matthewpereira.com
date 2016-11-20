@@ -3,23 +3,26 @@ import React     from 'react';
 import $         from 'jquery';
 import ScrollSVG from './ScrollSVG.jsx'
 
-export default class ScrollArrow extends React.Component {
+/*
+ TODO: Instead of hard-coding this function, could you pass the scrollclick function as a prop?
+ That way, you can re-use this component later with a different behavior.
+*/
 
-    onScrollClick() {
-        // document.body.scrollTop = window.innerHeight;
-        var height = $('[data-reactroot]').children('div:first-of-type').innerHeight();
-        $("html, body").animate({scrollTop:height}, 1000, 'swing');
-    }
+const ScrollArrow = () => {
+  const onScrollClick = () => {
+    var height = $('[data-reactroot]').children('div:first-of-type').innerHeight();
+    $("html, body").animate({ scrollTop: height }, 1000, 'swing');
+  };
 
-    render() {
-        return (
-            <div className={styles.scrollIcon} data-aos="fade-in-long" data-aos-offset="-300" onClick={this.onScrollClick}>
-                <div className={styles.scrollArrows}>
-                    <ScrollSVG/>
-                    <ScrollSVG/>
-                    <ScrollSVG/>
-                </div>
-            </div>
-        )
-    }
+  return (
+      <div className={styles.scrollIcon} data-aos="fade-in-long" data-aos-offset="-300" onClick={onScrollClick}>
+          <div className={styles.scrollArrows}>
+              <ScrollSVG/>
+              <ScrollSVG/>
+              <ScrollSVG/>
+          </div>
+      </div>
+  )
 }
+
+export default ScrollArrow;
