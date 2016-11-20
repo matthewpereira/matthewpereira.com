@@ -25,7 +25,7 @@ export default class App extends React.Component {
     handleScroll(event) {
         let scrollTop = event.srcElement.body.scrollTop;
 
-        if(scrollTop > 500){
+        if(scrollTop > 300){
             this.setState({
               showScroll: false
             });
