@@ -40,7 +40,6 @@ export default class App extends React.Component {
 			<div>
 				<Intro/>
                 { this.state.showScroll ? <ScrollArrow />: null }
-
 				<Gallery/>
             </div>
         )

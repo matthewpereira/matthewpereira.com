@@ -77,7 +77,8 @@ body {
 .scrollIcon {
     text-align: center;
     height: 48px;
-    margin-top: -15vh;
+    position: relative;
+    top: -15vh;
     cursor: pointer;
 }
 .scrollArrows {
