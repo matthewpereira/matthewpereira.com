@@ -41,7 +41,7 @@ const images = [
     {
         // Toronto Island
         src: 'http://i.imgur.com/N7VTSRS.jpg',
-        title: 'Centre Island Pier',
+        title: '▲',
         subtitle: '06, 2016',
         info: false
     },
