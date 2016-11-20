@@ -2,14 +2,14 @@ const images = [
     {
         // Cat on ferry
         src: 'http://i.imgur.com/a0S1YMk.jpg',
-        title: 'Ferry',
+        title: ':3',
         subtitle: '08, 2016',
         info: false
     },
     {
         // Jacob Felix Allen
         src: 'http://i.imgur.com/goV0hXu.jpg',
-        title: 'Jacob Felix Allen',
+        title: 'Jacob',
         subtitle: '09, 2016',
         info: false
     },
@@ -23,7 +23,7 @@ const images = [
     {
         // fireworks
         src: 'http://i.imgur.com/8YgZALu.jpg',
-        title: 'City Hall',
+        title: '*',
         subtitle: '07, 2015'
     },
     {
@@ -47,12 +47,12 @@ const images = [
     },
     {
         src: 'http://i.imgur.com/GxMvm5u.jpg',
-        title: 'A Tribe Called Red',
+        title: 'Tribe',
         subtitle: '07, 2015'
     },
     {
         src: 'http://i.imgur.com/NXBn1bo.jpg',
-        title: 'Hanlan\'s Point',
+        title: '⚓',
         subtitle: '09, 2015',
         info: false
     }
