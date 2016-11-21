@@ -18,7 +18,8 @@ if (module.hot) {
 		render(
 			<AppContainer>
     			<App/>
-    		</AppContainer>, document.querySelector("#app")
+    		</AppContainer>,
+            document.querySelector("#app")
         );
 	});
 }

@@ -1,11 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Oxygen:300');
 
+$textcolor: #0D1921;
+
 body {
     font-family: 'Oxygen';
     letter-spacing: 0.25px;
     font-weight: light;
-    color: #0D1921;
+    color: $textcolor;
     overflow-y: scroll;
+}
+
+.emailLink {
+    transform: rotate(270deg);
+    position: fixed;
+    top: 50vh;
+    left: 0;
+    color: $textcolor;
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 2px 5px;
+    &:hover {
+        text-decoration: none;
+        background-color: $textcolor;
+        color: #FFF;
+    }
 }
 
 .section {
@@ -51,6 +69,7 @@ body {
 .gallery .subtitle {
     opacity: 0;
     min-width: 150px;
+    line-height: 1;
 }
 
 .sidebar .moreInfo {
@@ -81,8 +100,12 @@ body {
     padding: 5px;
     animation: 0.5s all ease-in-out;
     &:hover {
-        background: #F6F6F6;
+        background: $textcolor;
         animation: 0.5s all ease-in-out;
+        & path {
+            fill: #FFF;
+            animation: 0.5s all ease-in-out;
+        }
     }
 }
 .scrollArrows svg {

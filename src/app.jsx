@@ -7,6 +7,20 @@ import selectedImages from './selectedImages.js';
 import ScrollArrow  from './ScrollArrow.jsx';
 import $            from 'jquery';
 
+var email = "mail@matthewpereira.com"
+
+const Email = () => {
+    return (
+        <div>
+            <a
+                className={styles.emailLink}
+                href={ 'mailto:' + email }
+                target="_blank"
+                >email</a>
+        </div>
+    )
+}
+
 export default class App extends React.Component {
     constructor(props) {
         super(props);
@@ -25,7 +39,7 @@ export default class App extends React.Component {
     handleScroll(event) {
         let scrollTop = event.srcElement.body.scrollTop;
 
-        if(scrollTop > 300){
+        if(scrollTop > 600){
             this.setState({
               showScroll: false
             });
@@ -39,6 +53,7 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<div>
+                <Email/>
 				<Intro/>
                 { this.state.showScroll ? <ScrollArrow />: null }
 				<Gallery images={selectedImages} />
