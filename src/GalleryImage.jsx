@@ -15,16 +15,16 @@ const GalleryImage = ({ image, index }) => {
               className={styles.subtitle}
               data-aos="slide-up"
               data-aos-offset="200"
-              >{image.subtitle}</div>
+              >{image.description}</div>
           <div
               className={styles.moreInfo}
               data-aos="slide-up"
               data-aos-offset="200"
               >{image.info}</div>
       </div>
-      <LazyLoad height={200} offset={300}>
+      <LazyLoad height={200} offset={1000}>
           <img
-              src={image.src}
+              src={image.link}
               data-aos="fade-in"
               className={styles.image + ' ' + index}
               ></img>
@@ -34,8 +34,8 @@ const GalleryImage = ({ image, index }) => {
 };
 
 GalleryImage.propTypes = {
-  image: PropTypes.object.isRequired,
-  index: PropTypes.number.isRequired,
+  // image: PropTypes.object.isRequired,
+  // index: PropTypes.number.isRequired,
 };
 
 export default GalleryImage;

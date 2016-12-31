@@ -10,11 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/matthewpereira/matthewpereira.github.io"
+    "url": "https://github.com/matthewpereira/matthewpereira.com"
   },
   "author": "Matthew Pereira",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/matthewpereira/matthewpereira.github.io",
+  "homepage": "http://matthewpereira.com",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.3",
     "node-sass": "^3.10.1",

@@ -15,7 +15,7 @@ const images = [
     {
         // Crysanthemum
         src: 'http://i.imgur.com/EAksUb6.jpg',
-        title: 'Bloom',
+        title: 'Crysanthemum Bloom',
         subtitle: '04, 2016'
     },
     {
@@ -33,13 +33,13 @@ const images = [
     {
         // Sunset at the cottage
         src: 'http://i.imgur.com/4lT9M8G.jpg',
-        title: 'Cool',
+        title: 'Thanksgiving',
         subtitle: '11 2014'
     },
     {
         // Train Tracks
         src: 'http://i.imgur.com/cwsUGyU.jpg',
-        title: 'Tracks',
+        title: 'East',
         subtitle: '08, 2015'
     },
     {
