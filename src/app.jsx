@@ -14,21 +14,21 @@ export default class App extends React.Component {
         this.state = {
             showScroll: true,
             email: 'mail.matthewpereira.com',
-            selectedImages: ['test'],
+            selectedImages: [],
             fetched: false
         };
         this.handleScroll = this.handleScroll.bind(this);
         this.fetchFromImgur = this.fetchFromImgur.bind(this);
     }
 
-    fetchFromImgur() {
+    fetchFromImgur(albumID) {
         // let albumAPI = "https://api.imgur.com/3/album/" + albumID + "/images";
         var self = this;
         if (!self.state.fetched) {
             let images = [];
             
             $.ajax({
-                url: "https://api.imgur.com/3/album/rPlup/images",
+                url: "https://api.imgur.com/3/album/" + albumID + "/images",
                 headers: {
                     'Authorization': '***REMOVED***'
                 },
@@ -50,7 +50,7 @@ export default class App extends React.Component {
         }
     }
     componentDidMount() {
-        this.fetchFromImgur();
+        this.fetchFromImgur('6Hpyr');
         window.addEventListener('scroll', this.handleScroll);
     }
 

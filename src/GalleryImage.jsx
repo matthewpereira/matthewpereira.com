@@ -9,17 +9,17 @@ const GalleryImage = ({ image, index }) => {
           <div
               className={styles.headline}
               data-aos="slide-up"
-              data-aos-offset="200"
+              data-aos-offset="225"
               >{image.title}</div>
           <div
               className={styles.subtitle}
               data-aos="slide-up"
-              data-aos-offset="200"
+              data-aos-offset="225"
               >{image.description}</div>
           <div
               className={styles.moreInfo}
               data-aos="slide-up"
-              data-aos-offset="200"
+              data-aos-offset="225"
               >{image.info}</div>
       </div>
       <LazyLoad height={200} offset={1000}>

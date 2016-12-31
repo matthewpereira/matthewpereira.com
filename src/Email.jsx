@@ -8,7 +8,7 @@ const Email = (props) => {
                 className={styles.emailLink}
                 href={ 'mailto:' + props.email }
                 target="_blank"
-                >email</a>
+                ></a>
         </div>
     )
 }
