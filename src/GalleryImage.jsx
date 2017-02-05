@@ -25,7 +25,7 @@ const GalleryImage = ({ image, index }) => {
       <LazyLoad height={200} offset={1000}>
           <img
               src={image.link}
-              data-aos="fade-in"
+              // data-aos="fade-in"
               className={styles.image + ' ' + index}
               ></img>
       </LazyLoad>
