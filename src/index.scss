@@ -85,7 +85,7 @@ body {
 }
 
 .gallery .headline {
-    opacity: 0;
+    opacity: 0.75;
     padding: 0 5px;
     z-index: 100;
 }
@@ -97,7 +97,7 @@ body {
 }
 
 .gallery .subtitle {
-    opacity: 0;
+    opacity: 0.75;
     min-width: 150px;
     line-height: 1;
 }
@@ -166,12 +166,12 @@ body {
 }
 
 [data-aos="fade-in"] {
-    opacity: 0;
+    opacity: 0.75;
     transition: 0.5s all ease;
 }
 
 [data-aos="fade-in-long"] {
-    opacity: 0;
+    opacity: 0.75;
     transition: 2s all ease;
 }
 
