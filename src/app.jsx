@@ -4,7 +4,6 @@ import React            from 'react';
 import Email            from './Email.jsx';
 import Intro            from './Intro.jsx';
 import Gallery          from './Gallery.jsx';
-import selectedImages   from './selectedImages.js';
 import ScrollArrow      from './ScrollArrow.jsx';
 import $                from 'jquery';
 
@@ -22,7 +21,6 @@ export default class App extends React.Component {
     }
 
     fetchFromImgur(albumID) {
-        // let albumAPI = "https://api.imgur.com/3/album/" + albumID + "/images";
         var self = this;
         if (!self.state.fetched) {
             let images = [];
@@ -41,7 +39,6 @@ export default class App extends React.Component {
                     console.log("Abort, abort!");
                 }
             }).done(function() {
-                console.log(images);
                 self.setState({
                     selectedImages: images,
                     fetched: true
@@ -77,8 +74,6 @@ export default class App extends React.Component {
     }
 
 	render() {
-        // console.log(this.fetchFromImgur);
-        // console.log(this.state.selectedImages)
 		return (
 			<div>
                 <Email email={this.state.email} />

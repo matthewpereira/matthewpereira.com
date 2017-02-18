@@ -34,8 +34,8 @@ const GalleryImage = ({ image, index }) => {
 };
 
 GalleryImage.propTypes = {
-  // image: PropTypes.object.isRequired,
-  // index: PropTypes.number.isRequired,
+  image: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default GalleryImage;

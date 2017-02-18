@@ -51,6 +51,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    &.intro {
+        height: 100vh;
+    }
 }
 
 .intro.section {

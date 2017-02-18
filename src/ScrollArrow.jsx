@@ -11,7 +11,6 @@ import ScrollSVG from './ScrollSVG.jsx'
 const ScrollArrow = () => {
     const onScrollClick = () => {
         var height = $('[data-reactroot]').children('div:nth-of-type(2)').innerHeight();
-        console.log(height);
         $("html, body").animate({
             scrollTop: height
         }, 1000, 'swing');
