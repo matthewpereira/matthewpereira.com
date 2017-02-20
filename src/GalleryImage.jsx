@@ -22,7 +22,7 @@ const GalleryImage = ({ image, index }) => {
               data-aos-offset="225"
               >{image.info}</div>
       </div>
-      <LazyLoad height={200} offset={1000}>
+      <LazyLoad height={200} offset={2000}>
           <img
               src={image.link}
               // data-aos="fade-in"
