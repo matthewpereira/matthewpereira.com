@@ -71,7 +71,7 @@ export default class App extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchImagesFromImgur(window.location.search.substr(1, window.location.search.length));
+        this.fetchImagesFromImgur(window.location.pathname.substr(1, window.location.pathname.length));
         window.addEventListener('scroll', debounce(this.handleScroll));
     }
 
