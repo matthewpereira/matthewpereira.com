@@ -6,21 +6,21 @@ const GalleryImage = ({ image, index }) => {
   return (
     <div className={styles.section}>
       <div className={styles.sidebar}>
-          <div
+          {image.title ? <div
               className={styles.headline}
               data-aos="slide-up"
               data-aos-offset="225"
-              >{image.title}</div>
-          <div
+              >{image.title}</div> : null}
+          {image.description ? <div
               className={styles.subtitle}
               data-aos="slide-up"
               data-aos-offset="225"
-              >{image.description}</div>
-          <div
+              >{image.description}</div> : null}
+          {image.info ? <div
               className={styles.moreInfo}
               data-aos="slide-up"
               data-aos-offset="225"
-              >{image.info}</div>
+              >{image.info}</div> : null}
       </div>
       <LazyLoad height={200} offset={2000}>
           <img
