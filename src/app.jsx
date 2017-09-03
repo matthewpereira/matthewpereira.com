@@ -28,8 +28,8 @@ export default class App extends React.Component {
         this.state = {
             showScroll: true,
             email: 'mail@matthewpereira.com',
-            title: 'Matthew Pereira',
-            description: 'Toronto, Canada',
+            title: '',
+            description: '',
             selectedImages: [],
             captions: false,
         };
@@ -56,6 +56,7 @@ export default class App extends React.Component {
                 title = data.data.title;
                 selectedImages = data.data.images;
                 description = data.data.description;
+                document.title = data.data.title;
             },
             error: function() {
                 console.log("Abort, abort!");
