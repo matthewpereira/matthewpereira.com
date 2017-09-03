@@ -12,7 +12,7 @@ const ScrollArrow = () => {
     const onScrollClick = () => {
         var height = $('[data-reactroot]').children('div:nth-of-type(2)').innerHeight();
         $("html, body").animate({
-            scrollTop: height
+            scrollTop: height + 35
         }, 1000, 'swing');
     };
 
