@@ -29,7 +29,7 @@ export default class App extends React.Component {
             showScroll: true,
             email: 'mail@matthewpereira.com',
             title: 'Matthew Pereira',
-            description: 'Toronto, Ontario',
+            description: 'Toronto, Canada',
             selectedImages: [],
             captions: false,
         };
