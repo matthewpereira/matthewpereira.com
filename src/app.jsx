@@ -53,10 +53,10 @@ export default class App extends React.Component {
             type: 'GET',
             dataType: 'json',
             success: function(data) {
-                title = data.data.title;
+                title = data.data.title ? data.data.title : 'Matthew Pereira';
                 selectedImages = data.data.images;
-                description = data.data.description;
-                document.title = data.data.title;
+                description = data.data.description ? data.data.description : '';
+                document.title = data.data.title ? data.data.title : 'Matthew Pereira';
             },
             error: function() {
                 console.log("Abort, abort!");
@@ -102,7 +102,7 @@ export default class App extends React.Component {
                     title={this.state.title}
                     description={this.state.description}
                 />
-                { this.state.showScroll ? <ScrollArrow /> : null }
+                { this.state.showScroll && this.state.selectedImages.length ? <ScrollArrow /> : null }
 				<Gallery images={this.state.selectedImages} captions={this.state.captions} />
             </div>
         )
