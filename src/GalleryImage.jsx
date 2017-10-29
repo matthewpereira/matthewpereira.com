@@ -2,32 +2,45 @@ import React, { PropTypes } from 'react';
 import styles   from './index.scss';
 import LazyLoad from 'react-lazyload';
 
-const GalleryImage = ({ image, index }) => {
+const GalleryImage = ({ image, index, sequence, type }) => {
+  if (type.indexOf('video') > -1) {
+    return (
+    <div className={styles.section}>
+      <div className={styles.sidebar}>
+          {image.title ? <div
+              className={styles.headline}
+              >{image.title}</div> : null}
+          {image.description ? <div
+              className={styles.subtitle}
+              >{image.description}</div> : null}
+          {image.info ? <div
+              className={styles.moreInfo}
+              >{image.info}</div> : null}
+      </div>
+      <video width="640" height="480" className={styles.video} autoPlay="true" loop="true">
+        <source src={image.link} type="video/mp4" />
+      </video>
+    </div>
+    );
+  }
   return (
     <div className={styles.section}>
       <div className={styles.sidebar}>
           {image.title ? <div
               className={styles.headline}
-              data-aos="slide-up"
-              data-aos-offset="225"
               >{image.title}</div> : null}
           {image.description ? <div
               className={styles.subtitle}
-              data-aos="slide-up"
-              data-aos-offset="225"
               >{image.description}</div> : null}
           {image.info ? <div
               className={styles.moreInfo}
-              data-aos="slide-up"
-              data-aos-offset="225"
               >{image.info}</div> : null}
       </div>
-      <LazyLoad height={200} offset={2000}>
+      <LazyLoad height={window.innerHeight} offset={4000}>
           <img
-              src={image.link}
-              // data-aos="fade-in"
-              className={styles.image + ' ' + index}
-              ></img>
+            src={image.link}
+            className={styles.image + ' ' + index}
+          />
       </LazyLoad>
     </div>
   )
@@ -36,6 +49,7 @@ const GalleryImage = ({ image, index }) => {
 GalleryImage.propTypes = {
   image: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default GalleryImage;

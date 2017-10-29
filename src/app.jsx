@@ -9,24 +9,10 @@ import $                from 'jquery';
 
 const DEFAULTGALLERY = '6Hpyr';
 
-const debounce = (func, wait, immediate) => {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		clearTimeout(timeout);
-		timeout = setTimeout(function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		}, wait);
-		if (immediate && !timeout) func.apply(context, args);
-	};
-}
-
 export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showScroll: true,
             email: 'mail@matthewpereira.com',
             title: '',
             description: '',
@@ -34,7 +20,6 @@ export default class App extends React.Component {
             captions: false,
         };
 
-        this.handleScroll = this.handleScroll.bind(this);
         this.fetchImagesFromImgur = this.fetchImagesFromImgur.bind(this);
     }
 
@@ -73,25 +58,6 @@ export default class App extends React.Component {
 
     componentDidMount() {
         this.fetchImagesFromImgur(window.location.search.substr(1, window.location.search.length));
-        window.addEventListener('scroll', debounce(this.handleScroll));
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('scroll', debounce(this.handleScroll));
-    }
-
-    handleScroll(event) {
-        let scrollTop = event.srcElement.body.scrollTop;
-
-        if (scrollTop > window.innerHeight) {
-            this.setState({
-              showScroll: false
-            });
-        } else {
-            this.setState({
-              showScroll: true
-            });
-        }
     }
 
 	render() {
@@ -102,7 +68,7 @@ export default class App extends React.Component {
                     title={this.state.title}
                     description={this.state.description}
                 />
-                { this.state.showScroll && this.state.selectedImages.length ? <ScrollArrow /> : null }
+                { this.state.selectedImages.length ? <ScrollArrow /> : null }
 				<Gallery images={this.state.selectedImages} captions={this.state.captions} />
             </div>
         )
