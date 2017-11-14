@@ -52,11 +52,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     &.intro {
         height: 100vh;
     }
-    
+
     @include media("<desktop") {
         min-height: auto;
         height: inherit;
@@ -111,7 +111,8 @@ body {
 }
 
 .gallery .headline {
-    opacity: 0.75;
+    background: #FFF;
+    opacity: 1;
     padding: 0 5px;
     z-index: 100;
 }
@@ -124,6 +125,7 @@ body {
 
 .gallery .subtitle {
     opacity: 1;
+    background: #FFF;
     min-width: 150px;
     line-height: 1;
 }
