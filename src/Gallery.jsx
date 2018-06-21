@@ -1,35 +1,38 @@
-import React, { PropTypes }    from 'react';
+import React   from 'react';
 import styles   from './index.scss';
 import GalleryImage from './GalleryImage.jsx';
+import Pagination from './Pagination.jsx';
+import { withRouter } from 'react-router';
 
-const Gallery = ({ images, captions }) => {
+const IMAGES_PER_PAGE = 50;  
+
+const Gallery = ({ images, captions, location }) => {
+  if (!images.length) {
+    return null;
+  }
+  
+  const hash = location.hash.replace(/#/, '');
+  const pageNumber = hash.length && hash > 0 ? hash : 1;
+
+  let currentImages = images;
+
+  // Split big lots of images, and use page numbers to choose which set to display
+  if (images.length > IMAGES_PER_PAGE) {
+    let start = 0 + pageNumber * IMAGES_PER_PAGE - IMAGES_PER_PAGE;
+
+    currentImages = images.slice(start, start + IMAGES_PER_PAGE);
+  }
+
+  const pageCount = Math.ceil(images.length / IMAGES_PER_PAGE);
+
   return (
     <div className={styles.gallery} data-captions={captions}>
-      {images.map((image, index) => {
-        let sequence;
-        
-        if (image.title && image.title.indexOf('#') > -1) {
-          const current = image.title.substr(1,1);
-          const total = image.title.substr(3,1);
-          
-          if (current === '1') {
-            sequence = 'start';
-          } else if (current === total) {
-            sequence = 'end';
-          } else {
-            sequence = 'middle';
-          }
-          image.title = image.title.replace(/.{4}/, '')
-        }
-        
-        return <GalleryImage key={index} image={image} index={index} sequence={sequence} type={image.type} />
-      })}
+      {currentImages.map((image, index) => 
+        <GalleryImage key={index} image={image} index={index} type={image.type} />
+      )}
+      <Pagination pageCount={pageCount} currentPage={pageNumber} />
     </div>
   )
 }
 
-Gallery.propTypes = {
-  images: PropTypes.array.isRequired,
-}
-
-export default Gallery;
+export default withRouter(Gallery);

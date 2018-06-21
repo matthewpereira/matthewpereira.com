@@ -2,23 +2,21 @@ import React                                   from 'react';
 import {render}                                from 'react-dom';
 import {AppContainer}                          from 'react-hot-loader';
 // import { Router, Route, Link, browserHistory } from 'react-router'
-import App                                     from './app.jsx';
-import AOS                                     from 'aos'
-
-AOS.init()
+import AppRouter                               from './app.jsx';
 
 render(
 	<AppContainer>
-        <App/>
+        <AppRouter/>
     </AppContainer>,
     document.querySelector("#app"));
 
 if (module.hot) {
 	module.hot.accept('./app.jsx', () => {
-		const App = require('./app.jsx').default;
+		const AppRouter = require('./app.jsx').default;
+
 		render(
 			<AppContainer>
-    			<App/>
+    			<AppRouter/>
     		</AppContainer>,
             document.querySelector("#app")
         );

@@ -8,6 +8,12 @@ body {
     font-weight: light;
     color: $textcolor;
     overflow-y: scroll;
+    transition: 1s opacity ease-in-out;
+}
+
+.bodyUpdating {
+    opacity: 0;
+    transition: 0.25s opacity ease-in-out;
 }
 
 .emailLink {
@@ -199,18 +205,39 @@ body {
     }
 }
 
-[data-aos="fade-in"] {
-    opacity: 0.75;
-    transition: 0.5s all ease;
+.gallery__pagination {
+    align-items: center;
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    margin-bottom: 50px;
+    padding: 5px;
+    color: #888;
+
+    & a,
+    & a:focus,
+    & a:visited {
+        color: #888;
+    }
+
+    & a:hover {
+        color: #222;
+        text-decoration: none;
+    }
 }
 
-[data-aos="fade-in-long"] {
-    opacity: 0.75;
-    transition: 2s all ease;
+.gallery__pageNumber a,
+.gallery__pageArrow a,
+.gallery__pageNumber__current {
+    display: inline-block;
+    padding: 12px;
 }
 
-[data-aos="slide-up"] {
-    line-height: 0;
-    overflow: hidden;
-    transition: 1s all ease;
+.gallery__pageArrow a:hover {
+    text-decoration: none;
+}
+
+.gallery__pageNumber__current {
+    color: #333;
+    font-size: 24px;
 }

@@ -1,37 +1,70 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles           from './index.scss';
+
 import React            from 'react';
+import $                from 'jquery';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import Email            from './Email.jsx';
 import Intro            from './Intro.jsx';
 import Gallery          from './Gallery.jsx';
 import ScrollArrow      from './ScrollArrow.jsx';
-import $                from 'jquery';
+import ScrollToTop      from './ScrollToTop.jsx';
+import allowedAlbums    from './allowedAlbums.js';
 
 const DEFAULTGALLERY = '6Hpyr';
 
-export default class App extends React.Component {
+import { withRouter } from "react-router";
+
+const AppRouter = () => {
+    return (
+        <Router>
+            <div>
+                <ScrollToTop />
+                <Route 
+                    path={`/:albumId`}
+                    component={App}
+                />
+                <Route 
+                    exact
+                    path={`/`}
+                    component={App}
+                />
+            </div>
+        </Router>
+    )
+}
+
+export default AppRouter;
+
+export class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: 'mail@matthewpereira.com',
             title: '',
             description: '',
-            selectedImages: [],
+            loadedImages: [],
             captions: false,
         };
 
         this.fetchImagesFromImgur = this.fetchImagesFromImgur.bind(this);
+        this.validateAlbum = this.validateAlbum.bind(this);
     }
 
-    fetchImagesFromImgur(albumID) {
-        var self = this;
-        let selectedImages = [];
+    validateAlbum = (albumId) => allowedAlbums.indexOf(albumId) > -1;
+
+    fetchImagesFromImgur(albumId) {
+        const id = albumId && this.validateAlbum(albumId) ? albumId : DEFAULTGALLERY;
+
+        let self = this;
+        let loadedImages = [];
         let title = '';
         let description = '';
-        let captions = albumID ? 'bottom' : 'right';
-
+        let captions = albumId ? 'bottom' : 'right';
+        
         $.ajax({
-            url: "https://api.imgur.com/3/album/" + (albumID || DEFAULTGALLERY),
+            url: `https://api.imgur.com/3/album/${id}`,
             headers: {
                 'Authorization': '***REMOVED***'
             },
@@ -39,16 +72,16 @@ export default class App extends React.Component {
             dataType: 'json',
             success: function(data) {
                 title = data.data.title ? data.data.title : 'Matthew Pereira';
-                selectedImages = data.data.images;
-                description = data.data.description ? data.data.description : '';
-                document.title = data.data.title ? data.data.title : 'Matthew Pereira';
+                loadedImages = data.data.images;
+                description = data.data.description || '';
+                document.title = title !== 'Matthew Pereira' ? title + ' - Matthew Pereira' : title;
             },
             error: function() {
                 console.log("Abort, abort!");
             }
         }).done(function() {
             self.setState({
-                selectedImages,
+                loadedImages,
                 title,
                 description,
                 captions
@@ -56,21 +89,29 @@ export default class App extends React.Component {
         });
     }
 
-    componentDidMount() {
-        this.fetchImagesFromImgur(window.location.search.substr(1, window.location.search.length));
+    componentWillMount() {
+        // Backwards compatibility for ?something paths
+        const currentAlbum = Object.keys(this.props.match.params).length ?
+            this.fetchImagesFromImgur(this.props.match.params.albumId) :
+            this.props.location.search.slice(1);
+        
+        this.fetchImagesFromImgur(currentAlbum);
     }
 
-	render() {
+    render() {
 		return (
-			<div>
+            <div>
                 <Email email={this.state.email} />
-				<Intro
+                <Intro
                     title={this.state.title}
                     description={this.state.description}
                 />
-                { this.state.selectedImages.length ? <ScrollArrow /> : null }
-				<Gallery images={this.state.selectedImages} captions={this.state.captions} />
+                <ScrollArrow show={this.state.loadedImages.length} />
+                <Gallery 
+                    images={this.state.loadedImages} 
+                    captions={this.state.captions} 
+                />
             </div>
-        )
+        );
     }
 }
