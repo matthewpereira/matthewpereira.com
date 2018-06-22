@@ -90,6 +90,8 @@ export class App extends React.Component {
     }
 
     componentWillMount() {
+        document.getElementById('app').classList.remove("app__loading");
+        
         // Backwards compatibility for ?something paths
         const currentAlbum = Object.keys(this.props.match.params).length ?
             this.fetchImagesFromImgur(this.props.match.params.albumId) :

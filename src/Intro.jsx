@@ -5,10 +5,10 @@ const Index = ({title, description}) => {
     const cssClasses = styles.intro + ' ' + styles.section;
     return (
         <div className={cssClasses}>
-            <div className={styles.headline} data-aos="fade-in-long">
+            <div className={styles.headline}>
                 {title}
             </div>
-            <div className={styles.subtitle} data-aos="fade-in-long">
+            <div className={styles.subtitle}>
                 {description}
             </div>
         </div>

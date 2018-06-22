@@ -23,7 +23,7 @@ const ScrollArrow = (props) => {
     };
 
     return (
-        <div className={styles.scrollIcon} data-aos="fade-in-long" data-aos-offset="-300" onClick={onScrollClick}>
+        <div className={styles.scrollIcon} onClick={onScrollClick}>
             <div className={styles.scrollArrows}>
                 <ScrollSVG/>
                 <ScrollSVG/>
