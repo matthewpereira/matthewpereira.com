@@ -9,6 +9,7 @@ import ScrollArrow      from './ScrollArrow.jsx';
 import allowedAlbums    from './allowedAlbums.js';
 
 const DEFAULTGALLERY = '6Hpyr';
+const BODYELEMENT = $("html, body");
 
 class App extends React.Component {
     constructor(props) {
@@ -21,8 +22,26 @@ class App extends React.Component {
             captions: false,
         };
 
+        this.onScrollClick = this.onScrollClick.bind(this);
         this.fetchImagesFromImgur = this.fetchImagesFromImgur.bind(this);
         this.validateAlbum = this.validateAlbum.bind(this);
+    }
+
+    componentWillMount() {
+        document.getElementById('app').classList.remove("app__loading");
+        
+        // Backwards compatibility for ?something paths
+        const albumCode = Object.keys(this.props.match.params).length ?
+            this.props.match.params.albumId :
+            this.props.location.search.slice(1);
+        
+        if (!this.validateAlbum(albumCode)) {
+            this.props.history.push('/');
+
+            return this.fetchImagesFromImgur(DEFAULTGALLERY);
+        }
+        
+        this.fetchImagesFromImgur(albumCode);
     }
 
     validateAlbum = (albumId) => allowedAlbums.indexOf(albumId) > -1;
@@ -63,22 +82,14 @@ class App extends React.Component {
     setStorage = (key, value) => sessionStorage.setItem(key, value);
     getStorage = key => sessionStorage.getItem(key);
 
-    componentWillMount() {
-        document.getElementById('app').classList.remove("app__loading");
+    onScrollClick = () => {
+        var height = $('[data-reactroot]').children().children('div:nth-of-type(2)').innerHeight();
         
-        // Backwards compatibility for ?something paths
-        const albumCode = Object.keys(this.props.match.params).length ?
-            this.props.match.params.albumId :
-            this.props.location.search.slice(1);
-        
-        if (!this.validateAlbum(albumCode)) {
-            this.props.history.push('/');
+        BODYELEMENT.animate({
+            scrollTop: height + 35
+        }, 500, 'swing');
+    };
 
-            return this.fetchImagesFromImgur(DEFAULTGALLERY);
-        }
-        
-        this.fetchImagesFromImgur(albumCode);
-    }
     render() {
 		return (
             <div>
@@ -87,7 +98,9 @@ class App extends React.Component {
                     title={this.state.title}
                     description={this.state.description}
                 />
-                <ScrollArrow show={this.state.loadedImages.length} />
+                <ScrollArrow 
+                    show={this.state.loadedImages.length}
+                    onClick={this.onScrollClick} />
                 <Gallery 
                     images={this.state.loadedImages} 
                     captions={this.state.captions} 

@@ -28,6 +28,8 @@ a {
     color: $textcolor;
     text-transform: uppercase;
     padding: 2px 5px;
+    letter-spacing: 0.5px;
+
     @include media("<=tablet") {
         padding: 0;
         font-size: 24px;
@@ -42,6 +44,7 @@ a {
             content: '@';
         }
     }
+   
     @include media(">tablet") {
         &::before {
             content: 'EMAIL';
@@ -78,6 +81,7 @@ a {
 .intro.section {
     flex-direction: column;
 }
+
 .gallery[data-captions="bottom"] .section {
     flex-direction: column-reverse;
 }
@@ -89,6 +93,7 @@ a {
     max-width: calc(90vw - 30px);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.05), 0 8px 10px rgba(0, 0, 0, 0.03);
     border: 1px solid white;
+    
     @include media("<=tablet") {
         max-width: calc(100vw - 30px);
     }
@@ -104,6 +109,7 @@ a {
     right: 5vw;
     margin-top: 0vh;
     z-index: 5;
+    
     @include media("<=tablet") {
         right: 0vw;
         margin-top: 0vh;
@@ -175,11 +181,12 @@ a {
     align-items: center;
     padding: 5px;
     animation: 0.5s all ease-in-out;
+
     &:hover {
-        background: $textcolor;
+        background: #FAFAFA;
         animation: 0.5s all ease-in-out;
+        
         & path {
-            fill: #FFF;
             animation: 0.5s all ease-in-out;
         }
     }
@@ -197,14 +204,17 @@ a {
             opacity: 1;
         }
     }
+   
     width: 8px;
     height: 8px;
     display: block;
     animation-timing-function: ease-in-out;
     animation: opacity-wave 2s infinite;
+    
     &:nth-of-type(2) {
         animation-delay: 0.25s;
     }
+   
     &:nth-of-type(3) {
         animation-delay: 0.50s;
     }
