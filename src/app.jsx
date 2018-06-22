@@ -8,8 +8,6 @@ import Gallery          from './Gallery.jsx';
 import ScrollArrow      from './ScrollArrow.jsx';
 import allowedAlbums    from './allowedAlbums.js';
 
-
-
 const DEFAULTGALLERY = '6Hpyr';
 
 class App extends React.Component {
@@ -34,7 +32,7 @@ class App extends React.Component {
         let loadedImages = [];
         let title = '';
         let description = '';
-        let captions = albumId ? 'bottom' : 'right';
+        let captions = albumId !== DEFAULTGALLERY ? 'bottom' : 'right';
         
         $.ajax({
             url: `https://api.imgur.com/3/album/${albumId}`,
