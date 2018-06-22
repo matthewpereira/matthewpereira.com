@@ -1,43 +1,18 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import styles           from './index.scss';
-
 import React            from 'react';
 import $                from 'jquery';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { withRouter }   from 'react-router';
 
 import Email            from './Email.jsx';
 import Intro            from './Intro.jsx';
 import Gallery          from './Gallery.jsx';
 import ScrollArrow      from './ScrollArrow.jsx';
-import ScrollToTop      from './ScrollToTop.jsx';
 import allowedAlbums    from './allowedAlbums.js';
+
+
 
 const DEFAULTGALLERY = '6Hpyr';
 
-import { withRouter } from "react-router";
-
-const AppRouter = () => {
-    return (
-        <Router>
-            <div>
-                <ScrollToTop />
-                <Route 
-                    path={`/:albumId`}
-                    component={App}
-                />
-                <Route 
-                    exact
-                    path={`/`}
-                    component={App}
-                />
-            </div>
-        </Router>
-    )
-}
-
-export default AppRouter;
-
-export class App extends React.Component {
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -55,8 +30,6 @@ export class App extends React.Component {
     validateAlbum = (albumId) => allowedAlbums.indexOf(albumId) > -1;
 
     fetchImagesFromImgur(albumId) {
-        const id = albumId && this.validateAlbum(albumId) ? albumId : DEFAULTGALLERY;
-
         let self = this;
         let loadedImages = [];
         let title = '';
@@ -64,7 +37,7 @@ export class App extends React.Component {
         let captions = albumId ? 'bottom' : 'right';
         
         $.ajax({
-            url: `https://api.imgur.com/3/album/${id}`,
+            url: `https://api.imgur.com/3/album/${albumId}`,
             headers: {
                 'Authorization': '***REMOVED***'
             },
@@ -89,17 +62,25 @@ export class App extends React.Component {
         });
     }
 
+    setStorage = (key, value) => sessionStorage.setItem(key, value);
+    getStorage = key => sessionStorage.getItem(key);
+
     componentWillMount() {
         document.getElementById('app').classList.remove("app__loading");
         
         // Backwards compatibility for ?something paths
-        const currentAlbum = Object.keys(this.props.match.params).length ?
-            this.fetchImagesFromImgur(this.props.match.params.albumId) :
+        const albumCode = Object.keys(this.props.match.params).length ?
+            this.props.match.params.albumId :
             this.props.location.search.slice(1);
         
-        this.fetchImagesFromImgur(currentAlbum);
-    }
+        if (!this.validateAlbum(albumCode)) {
+            this.props.history.push('/');
 
+            return this.fetchImagesFromImgur(DEFAULTGALLERY);
+        }
+        
+        this.fetchImagesFromImgur(albumCode);
+    }
     render() {
 		return (
             <div>
@@ -117,3 +98,5 @@ export class App extends React.Component {
         );
     }
 }
+
+export default withRouter(App);

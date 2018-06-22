@@ -1,5 +1,5 @@
 import React   from 'react';
-import styles   from './index.scss';
+import styles  from './index.scss';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
@@ -55,7 +55,7 @@ const Pagination = ({ currentPage, pageCount, location }) => {
             <PrevButton 
                 currentPage={parseInt(currentPage)} 
                 pageCount={parseInt(pageCount)} 
-                pathName={location.pathname}
+                pathName={location.search}
             />
             {pageNumbers.map(pageNumber =>
                 <PageNumber
@@ -63,13 +63,13 @@ const Pagination = ({ currentPage, pageCount, location }) => {
                     pageNumber={pageNumber}
                     currentPage={currentPage} 
                     pageCount={pageCount} 
-                    pathName={location.pathname}
+                    pathName={location.search}
                 />
             )}
             <NextButton 
                 currentPage={currentPage} 
                 pageCount={pageCount} 
-                pathName={location.pathname}
+                pathName={location.search}
             />
         </div>
     );

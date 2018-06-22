@@ -2,6 +2,7 @@
 @import 'media';
 
 $textcolor: #0D1921;
+
 body {
     font-family: 'Oxygen';
     letter-spacing: 0.25px;
@@ -9,6 +10,10 @@ body {
     color: $textcolor;
     overflow-y: scroll;
     transition: 1s opacity ease-in-out;
+}
+
+a {
+    text-decoration: none;
 }
 
 .bodyUpdating {

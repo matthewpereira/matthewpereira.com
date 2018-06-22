@@ -24,9 +24,9 @@ const ScrollToTop = withRouter(class ScrollToTopWithoutRouter extends React.Comp
         }
   }
 
-  render() {
-    return null;
-  }
+    render() {
+        return null;
+    }
 });
 
 export default ScrollToTop;
