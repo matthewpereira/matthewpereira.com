@@ -6,7 +6,9 @@ import Email            from './Email.jsx';
 import Intro            from './Intro.jsx';
 import Gallery          from './Gallery.jsx';
 import ScrollArrow      from './ScrollArrow.jsx';
-import allowedAlbums    from './allowedAlbums.js';
+import ScrollToTop      from './ScrollToTop';
+
+import allowedAlbums    from '../allowedAlbums.js';
 
 const DEFAULTGALLERY = '6Hpyr';
 const BODYELEMENT = $("html, body");
@@ -22,9 +24,9 @@ class App extends React.Component {
             captions: false,
         };
 
-        this.onScrollClick = this.onScrollClick.bind(this);
+        this.onScrollClick        = this.onScrollClick.bind(this);
         this.fetchImagesFromImgur = this.fetchImagesFromImgur.bind(this);
-        this.validateAlbum = this.validateAlbum.bind(this);
+        this.validateAlbum        = this.validateAlbum.bind(this);
     }
 
     componentWillMount() {
@@ -79,9 +81,6 @@ class App extends React.Component {
         });
     }
 
-    setStorage = (key, value) => sessionStorage.setItem(key, value);
-    getStorage = key => sessionStorage.getItem(key);
-
     onScrollClick = () => {
         var height = $('[data-reactroot]').children().children('div:nth-of-type(2)').innerHeight();
         
@@ -101,6 +100,7 @@ class App extends React.Component {
                 <ScrollArrow 
                     show={this.state.loadedImages.length}
                     onClick={this.onScrollClick} />
+                <ScrollToTop />
                 <Gallery 
                     images={this.state.loadedImages} 
                     captions={this.state.captions} 

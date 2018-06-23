@@ -1,5 +1,5 @@
-import styles from './index.scss';
 import React from 'react';
+import styles from '../scss/index.scss';
 
 const Index = ({ title, description }) => (
     <div className={`${styles.intro} ${styles.section}`}>

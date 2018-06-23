@@ -1,8 +1,10 @@
-import React   from 'react';
-import styles   from './index.scss';
-import GalleryImage from './GalleryImage.jsx';
-import Pagination from './Pagination.jsx';
+import React          from 'react';
 import { withRouter } from 'react-router';
+
+import GalleryImage   from './GalleryImage.jsx';
+import Pagination     from './Pagination.jsx';
+
+import styles         from '../scss/index.scss';
 
 const IMAGES_PER_PAGE = 50;  
 

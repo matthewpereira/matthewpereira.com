@@ -1,7 +1,8 @@
-import React   from 'react';
-import styles  from './index.scss';
+import React          from 'react';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link }       from 'react-router-dom';
+
+import styles         from '../scss/index.scss';
 
 const PrevButton = ({ currentPage, pageCount, pathName }) => {
     if (parseInt(currentPage) < 2) {

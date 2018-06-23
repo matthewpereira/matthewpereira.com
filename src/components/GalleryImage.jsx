@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import styles   from './index.scss';
-import LazyLoad from 'react-lazyload';
+import LazyLoad             from 'react-lazyload';
+import styles               from '../scss/index.scss';
 
 const GalleryImage = ({ image, index, sequence, type, width, height }) => {
     // Detect videos

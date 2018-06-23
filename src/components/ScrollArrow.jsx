@@ -1,7 +1,6 @@
-import styles from './index.scss';
-import React from 'react';
-import $ from 'jquery';
+import React     from 'react';
 import ScrollSVG from './ScrollSVG.jsx'
+import styles    from '../scss/index.scss';
 
 const ScrollArrow = (props) => {
     if (!props.show) {

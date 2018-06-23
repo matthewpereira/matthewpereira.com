@@ -1,7 +1,7 @@
 import React            from 'react';
 import { render }       from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import AppRouter        from './AppRouter.jsx';
+import AppRouter        from './components/AppRouter.jsx';
 
 render(
 	<AppContainer>
@@ -10,8 +10,8 @@ render(
     document.querySelector("#app"));
 
 if (module.hot) {
-	module.hot.accept('./AppRouter.jsx', () => {
-		const AppRouter = require('./AppRouter.jsx').default;
+	module.hot.accept('./components/AppRouter.jsx', () => {
+		const AppRouter = require('./components/AppRouter.jsx').default;
 
 		render(
 			<AppContainer>
