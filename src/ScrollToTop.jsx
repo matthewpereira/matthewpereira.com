@@ -7,6 +7,7 @@ const body = $("html, body");
 
 // Scroll restoration based on
 // https://reacttraining.com/react-router/web/guides/scroll-restoration.
+
 const ScrollToTop = withRouter(class ScrollToTopWithoutRouter extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
@@ -22,7 +23,7 @@ const ScrollToTop = withRouter(class ScrollToTopWithoutRouter extends React.Comp
                 body.removeClass(styles.bodyUpdating); 
             });
         }
-  }
+    }
 
     render() {
         return null;
