@@ -12,7 +12,7 @@ const GalleryImage = ({ image, index, sequence, type, width, height }) => {
                     {image.description ? <div className={styles.subtitle}>{image.description}</div> : null}
                     {image.info ? <div className={styles.moreInfo}>{image.info}</div> : null}
                 </div>
-                <video width={width || 640} height={height || 480} className={styles.video} autoPlay="true" loop="true">
+                <video width={width || 640} height={height || 480} className={styles.video} autoPlay="true" controls="true" loop="true">
                     <source src={image.link} type="video/mp4" />
                 </video>
             </div>
