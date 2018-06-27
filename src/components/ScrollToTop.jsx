@@ -40,12 +40,14 @@ const ScrollToTop = withRouter(class ScrollToTopWithoutRouter extends React.Comp
             .children('div:nth-of-type(2)')
             .innerHeight();
     
-        const addFadeClass = fadeIn === true ? styles.bodyUpdating : '';
+        const addFadeClass = fadeIn ? 
+            styles.bodyUpdating : 
+            '';
 
         return body.addClass(addFadeClass)
             .animate({
                 scrollTop: introHeight + 30
-            }, 1000, 'swing', () => body.removeClass(addFadeClass)
+            }, 750, 'swing', () => body.removeClass(addFadeClass)
         );
     }
     

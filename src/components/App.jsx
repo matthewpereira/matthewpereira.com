@@ -6,7 +6,6 @@ import Email            from './Email.jsx';
 import Intro            from './Intro.jsx';
 import Gallery          from './Gallery.jsx';
 import ScrollArrow      from './ScrollArrow.jsx';
-import ScrollToTop      from './ScrollToTop';
 
 import allowedAlbums    from '../allowedAlbums.js';
 
@@ -100,7 +99,6 @@ class App extends React.Component {
                 <ScrollArrow 
                     show={this.state.loadedImages.length}
                     onClick={this.onScrollClick} />
-                <ScrollToTop />
                 <Gallery 
                     images={this.state.loadedImages} 
                     captions={this.state.captions} 
