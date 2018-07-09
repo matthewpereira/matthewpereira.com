@@ -81,6 +81,7 @@ const allowedAlbums = [
     'Z7eHCbx', // Wes and Morgan and the kids at Trinity Bellwoods
     'Dq1xiRO', // Mom's Birthday 2018
     'zisKD4A', // AB BC Road Trip 2018
+    'lBB2fBz', // Trinity Bellwoods with Friendsday friends
 ];
 
 export default allowedAlbums;
