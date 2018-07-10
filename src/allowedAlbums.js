@@ -82,6 +82,7 @@ const allowedAlbums = [
     'Dq1xiRO', // Mom's Birthday 2018
     'zisKD4A', // AB BC Road Trip 2018
     'lBB2fBz', // Trinity Bellwoods with Friendsday friends
+    '6LzWWez', // Wells Hill Park
 ];
 
 export default allowedAlbums;
