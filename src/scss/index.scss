@@ -47,7 +47,7 @@ a {
         position: relative;
         height: 0;
         width: 100vw;
-        top: 60vh;
+        top: 70vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -103,10 +103,13 @@ a {
         height: 100vh;
     }
 
+    & + & {
+        margin-top: 50px;
+    }
+
     @include media("<desktop") {
         min-height: auto;
-        height: inherit;
-        margin-bottom: 50px;
+        height: inherit;        
     }
 }
 
@@ -157,6 +160,8 @@ a {
 
 .headline {
     font-size: 24px;
+    text-align: center;
+    padding: 10px;
 }
 
 .gallery .headline {
