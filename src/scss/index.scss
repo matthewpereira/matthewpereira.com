@@ -10,6 +10,7 @@ body {
     letter-spacing: 0.25px;
     overflow-y: scroll;
     transition: 1s opacity ease-in-out;
+    margin: 0;
 }
 
 a {
@@ -25,14 +26,17 @@ a {
 .scrollToTopLink {
     color: $textcolor;
     cursor: pointer;
-    left: -5px;
     letter-spacing: 0.5px;
     padding: 2px 5px;
     position: fixed;
     text-transform: uppercase;
     transition: 0.5s background-color ease-in-out, 0.25s color ease-in-out;
     z-index: 1;
+}
 
+.emailLink {
+    left: -5px;
+    
     @include media("<=tablet") {
         &::before {
             content: '@';
