@@ -22,7 +22,7 @@ a {
     transition: 0.25s opacity ease-in-out;
 }
 
-.emailLink, 
+.emailLink,
 .scrollToTopLink {
     color: $textcolor;
     cursor: pointer;
@@ -36,7 +36,7 @@ a {
 
 .emailLink {
     left: -5px;
-    
+
     @include media("<=tablet") {
         &::before {
             content: '@';
@@ -52,7 +52,7 @@ a {
         align-items: center;
         justify-content: center;
     }
-   
+
     @include media(">tablet") {
         &::before {
             content: 'EMAIL';
@@ -109,7 +109,7 @@ a {
 
     @include media("<desktop") {
         min-height: auto;
-        height: inherit;        
+        height: inherit;
     }
 }
 
@@ -128,7 +128,7 @@ a {
     max-height: calc(100vh - 100px);
     max-width: calc(95vw - 20px);
     z-index: 2;
-    
+
     @include media("<=tablet") {
         max-width: calc(100vw - 30px);
     }
@@ -144,7 +144,7 @@ a {
     right: 5vw;
     margin-top: 0vh;
     z-index: 5;
-    
+
     @include media("<=tablet") {
         right: 0vw;
         margin-top: 0vh;
@@ -167,6 +167,7 @@ a {
 .gallery .headline {
     background: #FFF;
     padding: 0 5px;
+    text-align: left;
     z-index: 100;
 
     @include media("<desktop") {
@@ -225,7 +226,7 @@ a {
     &:hover {
         background: #FAFAFA;
         animation: 0.5s all ease-in-out;
-        
+
         & path {
             animation: 0.5s all ease-in-out;
         }
@@ -244,17 +245,17 @@ a {
             opacity: 1;
         }
     }
-   
+
     width: 8px;
     height: 8px;
     display: block;
     animation-timing-function: ease-in-out;
     animation: opacity-wave 2s infinite;
-    
+
     &:nth-of-type(2) {
         animation-delay: 0.25s;
     }
-   
+
     &:nth-of-type(3) {
         animation-delay: 0.50s;
     }
