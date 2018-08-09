@@ -84,6 +84,7 @@ const allowedAlbums = [
     'lBB2fBz', // Trinity Bellwoods with Friendsday friends
     '6LzWWez', // Wells Hill Park
     'jTGEisX', // Statflo Barbecue
+    'EjfU9R5', // Cottaging 2018-08-03
 ];
 
 export default allowedAlbums;
