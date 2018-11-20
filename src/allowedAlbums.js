@@ -86,6 +86,7 @@ const allowedAlbums = [
     'jTGEisX', // Statflo Barbecue
     'EjfU9R5', // Cottaging 2018-08-03
     'snobRBm', // Julia and Aodhan
+    'MqfQ2Bm', // Yasmin's Baby Mikael
 ];
 
 export default allowedAlbums;
