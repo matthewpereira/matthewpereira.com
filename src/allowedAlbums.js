@@ -1,6 +1,7 @@
 const allowedAlbums = [
     '6Hpyr', // base gallery
     //
+    'viBQGRm', // Steve's Thailand Trip
     '9A5me', // May 2013 Snapshots
     'vDwNE', // Cadillacs and Cadavers at Stones Place
     'kDk0V', // Rooftop Barbecue at Brian and Melody's
