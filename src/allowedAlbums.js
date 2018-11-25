@@ -35,6 +35,7 @@ const allowedAlbums = [
     'crbpP', // Kait and Chris' wedding
     'as2L5', // Holiday Pictures
     '7g9Rv', // Matt and Celeste at Dave's Birthday
+    'HEY71', // Wine Tasting trip with Phil and Nikky
     'g6uxa', // Owen at Statflo
     'q98ao', // Celeste's Grad Party
     'rOM63', // Barbecue at Brian and Melody's
@@ -57,7 +58,7 @@ const allowedAlbums = [
     'WZzKm', // Canada Day with Jess and Alex
     'IGnD1', // August Long Weekend 2017
     'OHio2', // Wes Kait Chris Jasper Augusta Jacob
-	  'rBfPF', // Statflo Barbecue 2017
+	'rBfPF', // Statflo Barbecue 2017
     'oKXXB', // The Fix Ice Cream Shop
     '0K45k', // Robin's Birthday 2017
     'nuxA0', // Belleville 2017
@@ -87,6 +88,11 @@ const allowedAlbums = [
     'jTGEisX', // Statflo Barbecue
     'EjfU9R5', // Cottaging 2018-08-03
     'snobRBm', // Julia and Aodhan
+    'GxGFWK6', // Matthew and Alex's Wedding
+    '5cl2AOr', // Matthew and Alex's Wedding BW
+    'uo9IRDN', // Canada's Wonderland
+    'OmwE35S', // Fake Boos, Halloween 2018
+    'dBNUoTc', // Julia and Aodhan's Wedding
     'MqfQ2Bm', // Yasmin's Baby Mikael
 ];
 
