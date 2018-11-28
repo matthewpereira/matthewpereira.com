@@ -79,6 +79,7 @@ const allowedAlbums = [
     'fC54L', // Augusta and Olive'
     '13FJNN3', // Statflo Potluck 2018
     'SQ3UDDm', // Pereira Easter 2018
+    'WTO49bj', // Friendsday Farewell Barbecue
     'pTHw6ZO', // Statflo Product Offsite 2018
     'Z7eHCbx', // Wes and Morgan and the kids at Trinity Bellwoods
     'Dq1xiRO', // Mom's Birthday 2018
