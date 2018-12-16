@@ -95,6 +95,7 @@ const allowedAlbums = [
     'OmwE35S', // Fake Boos, Halloween 2018
     'dBNUoTc', // Julia and Aodhan's Wedding
     'MqfQ2Bm', // Yasmin's Baby Mikael
+    '3IxD68y', // Curaçao 2018
 ];
 
 export default allowedAlbums;

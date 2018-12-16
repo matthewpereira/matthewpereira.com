@@ -297,3 +297,20 @@ a {
     color: #333;
     font-size: 24px;
 }
+
+.embedContainer { 
+    position: relative; 
+    padding-bottom: 48.55%; 
+    height: 0; 
+    overflow: hidden; 
+    margin: 100px 32px;
+} 
+.embedContainer iframe, 
+.embedContainer object, 
+.embedContainer embed { 
+    position: absolute; 
+    top: 0; 
+    left: 5%; 
+    width: 90%; 
+    height: 100%; 
+}
