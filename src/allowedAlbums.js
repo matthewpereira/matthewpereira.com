@@ -96,6 +96,7 @@ const allowedAlbums = [
     'dBNUoTc', // Julia and Aodhan's Wedding
     'MqfQ2Bm', // Yasmin's Baby Mikael
     '3IxD68y', // Curaçao 2018
+    'kCTI9nN', // CF Summit Philadelphia 2019
 ];
 
 export default allowedAlbums;
