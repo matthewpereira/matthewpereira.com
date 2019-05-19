@@ -58,8 +58,9 @@ const allowedAlbums = [
     'WZzKm', // Canada Day with Jess and Alex
     'IGnD1', // August Long Weekend 2017
     'OHio2', // Wes Kait Chris Jasper Augusta Jacob
-	'rBfPF', // Statflo Barbecue 2017
+    'rBfPF', // Statflo Barbecue 2017
     'oKXXB', // The Fix Ice Cream Shop
+    'XMEfZfv', // Celeste at Trillium Park
     '0K45k', // Robin's Birthday 2017
     'nuxA0', // Belleville 2017
     'RZcF4', // Iceland 2017
