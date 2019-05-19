@@ -18,14 +18,15 @@
   "homepage": "http://matthewpereira.com",
   "dependencies": {
     "classnames": "^2.2.6",
-    "node-sass": "^3.10.1",
+    "node-sass": "4.12.0",
     "react": "15.3.2",
     "react-dom": "15.3.2",
     "react-emojione": "^5.0.0",
     "react-lazyload": "^2.2.0",
     "react-router-dom": "^4.3.1",
     "recompose": "^0.27.1",
-    "sass-loader": "^4.0.2"
+    "sass-loader": "^4.0.2",
+    "tar": "4.4.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.3",
@@ -42,8 +43,8 @@
     "file-loader": "0.9.0",
     "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^2.22.0",
-    "jquery": "^3.1.1",
-    "node-gyp": "^3.8.0",
+    "jquery": "^3.4.0",
+    "node-gyp": "^4.0.0",
     "postcss-loader": "^1.0.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-router": "^4.3.1",
@@ -51,6 +52,7 @@
     "url-loader": "0.5.7",
     "webpack": "1.13.2",
     "webpack-cleanup-plugin": "^0.4.1",
+    "webpack-cli": "^3.3.2",
     "webpack-dev-server": "1.16.2"
   }
 }
