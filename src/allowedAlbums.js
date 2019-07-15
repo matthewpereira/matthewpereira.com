@@ -99,6 +99,7 @@ const allowedAlbums = [
     '3IxD68y', // Curaçao 2018
     'kCTI9nN', // CF Summit Philadelphia 2019
     '9arTNBF', // San Francisco 2019
+    '0877UpO', // Pivotal Island 2019
 ];
 
 export default allowedAlbums;
