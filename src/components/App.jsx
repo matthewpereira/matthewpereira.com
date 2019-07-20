@@ -1,16 +1,19 @@
-import React            from 'react';
-import $                from 'jquery';
-import { withRouter }   from 'react-router';
+import React               from 'react';
+import { withRouter }      from 'react-router';
 
-import Email            from './Email.jsx';
-import Intro            from './Intro.jsx';
-import Gallery          from './Gallery.jsx';
-import ScrollArrow      from './ScrollArrow.jsx';
+import AlbumList           from './AlbumList.jsx';
+import Email               from './Email.jsx';
+import Gallery             from './Gallery.jsx';
+import Intro               from './Intro.jsx';
+import ScrollArrow         from './ScrollArrow.jsx';
 
-import allowedAlbums    from '../allowedAlbums.js';
+import allowedAlbums       from '../allowedAlbums.js';
+import styles              from '../scss/index.scss';
+
+import IMGUR_AUTHORIZATION from '../../env';
 
 const DEFAULTGALLERY = '6Hpyr';
-const BODYELEMENT = $("html, body");
+const BODYELEMENT = document.getElementsByTagName("BODY")[0];
 
 class App extends React.Component {
     constructor(props) {
@@ -44,8 +47,8 @@ class App extends React.Component {
         
         this.fetchImagesFromImgur(albumCode);
     }
-
-    validateAlbum = (albumId) => allowedAlbums.indexOf(albumId) > -1;
+    
+    validateAlbum = (albumId) => Object.values(allowedAlbums).indexOf(albumId) > -1;
 
     fetchImagesFromImgur(albumId) {
         let self = this;
@@ -54,58 +57,56 @@ class App extends React.Component {
         let description = '';
         let captions = albumId !== DEFAULTGALLERY ? 'bottom' : 'right';
         
-        $.ajax({
-            url: `https://api.imgur.com/3/album/${albumId}`,
+        const details = { 
             headers: {
-                'Authorization': '***REMOVED***'
-            },
-            type: 'GET',
-            dataType: 'json',
-            success: function(data) {
+                'Authorization': IMGUR_AUTHORIZATION
+            }
+        }
+
+        fetch(`https://api.imgur.com/3/album/${albumId}`, details)
+            .then(data => data.json())
+            .then(data => {
                 title = data.data.title ? data.data.title : 'Matthew Pereira';
                 loadedImages = data.data.images;
                 description = data.data.description || '';
                 document.title = title !== 'Matthew Pereira' ? title + ' - Matthew Pereira' : title;
-            },
-            error: function() {
-                console.log("Abort, abort!");
-            }
-        }).done(function() {
-            self.setState({
-                loadedImages,
-                title,
-                description,
-                captions
+
+                self.setState({
+                    loadedImages,
+                    title,
+                    description,
+                    captions
+                });
+            })
+            .catch(error => {
+                console.error("Abort, abort!", error);
             });
-        });
     }
 
     onScrollClick = () => {
-        var height = $('[data-reactroot]').children().children('div:nth-of-type(2)').innerHeight();
-        
-        BODYELEMENT.animate({
-            scrollTop: height + 35
-        }, 500, 'swing');
+        const height = document.getElementsByClassName(styles.intro)[0].scrollHeight;
+        const scrollTop = height + 35;
+
+        document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
     };
 
-    render() {
-		return (
-            <div>
-                <Email email={this.state.email} />
-                <Intro
-                    title={this.state.title}
-                    description={this.state.description}
-                />
-                <ScrollArrow 
-                    show={this.state.loadedImages.length}
-                    onClick={this.onScrollClick} />
-                <Gallery 
-                    images={this.state.loadedImages} 
-                    captions={this.state.captions} 
-                />
-            </div>
-        );
-    }
+    render = () => (
+        <div>
+            <AlbumList allowedAlbums={allowedAlbums} />
+            <Email email={this.state.email} />
+            <Intro
+                title={this.state.title}
+                description={this.state.description}
+            />
+            <ScrollArrow 
+                show={this.state.loadedImages.length}
+                onClick={this.onScrollClick} />
+            <Gallery 
+                images={this.state.loadedImages} 
+                captions={this.state.captions} 
+            />
+        </div>
+    );
 }
 
 export default withRouter(App);

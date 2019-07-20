@@ -1,104 +1,103 @@
-const allowedAlbums = [
-    '6Hpyr', // base gallery
-    //
-    'viBQGRm', // Steve's Thailand Trip
-    '9A5me', // May 2013 Snapshots
-    'vDwNE', // Cadillacs and Cadavers at Stones Place
-    'kDk0V', // Rooftop Barbecue at Brian and Melody's
-    '5gxSY', // Barbecue at Morgan and Wesley's - 2013-05-29
-    'EK1TV', // Melody and Brian's barbecue
-    'c6C6p', // Dinner at Wes and Morgan's
-    'uFi37', // OCAD beach party
-    'asLHt', // Wes and Morgan's baby shower
-    'hmwlt', // Innisfil 2013
-    'wV2vZ', // Jasper's baby photos
-    'gpZyA', // Shelbie and Ryan's Birthday Bash
-    'jofpF', // Board Games at Wes and Morgan's
-    'Byn7D', // Festive Friendsday
-    '3F5AU', // Flip Cup Friday
-    'OVK35', // Cottage 2014 Connell and Bray
-    'TPJD5', // Pancake Party at Nicole's
-    'rgEYp', // Friendsday Ribsday
-    'eBf7k', // Friendsday Go Karting
-    'VXBAU', // Innisfil 2014
-    '00gld', // Badlands with Nicole
-    'x88HI', // Shelbie and Ryan's Birthday 2015
-    'fFb08', // Jasper's first birthday 2015
-    '8OXhc', // Toronto Global Game Jam 2015
-    '4p5Kk', // Belleville Trip
-    'SuwHL', // Celeste and Matthew go to Paris
-    'PfzzJ', // Barbecue at Wes and Morgan's
-    'c44Dh', // Austra and Tribe Called Red
-    'l5ON6', // Sandbanks with Nikky and Phil
-    'DNyjC', // Labour day at Hanlan's Point
-    'UmxwY', // Flea Market
-    'crbpP', // Kait and Chris' wedding
-    'as2L5', // Holiday Pictures
-    '7g9Rv', // Matt and Celeste at Dave's Birthday
-    'HEY71', // Wine Tasting trip with Phil and Nikky
-    'g6uxa', // Owen at Statflo
-    'q98ao', // Celeste's Grad Party
-    'rOM63', // Barbecue at Brian and Melody's
-    'A0d80', // Toronto Island with Celeste
-    'huRdJ', // Jasper and Olive
-    'P2ysk', // OneEleven Boat Cruise
-    'q5uqT', // Julia's Cats
-    'Lk2aW', // Friendsday Trinity Bellwoods
-    'VZJjm', // Statflo Goodbye Lunch
-    'DDYYq', // Dad's Birthday 2016-09-25
-    '5JQVZ', // Labour Day 2016 at the Cottage
-    'AlXYh', // August Long Weekend at the Cottage 2016
-    'SqJ0r', // Statflo at Mengrai
-    'hjNvg', // Spook Me Like One of Your French Girls (Halloween 2016)
-    'eVOZf', // Halloween 2016 at Wes and Morgan's
-    '01B2c', // Statflo Christmas Party 2016
-    '3pP6c', // Pereira Christmas 2016
-    'mlQaJ', // St Lucia
-    'ang7R', // Pie day at Statflo
-    'WZzKm', // Canada Day with Jess and Alex
-    'IGnD1', // August Long Weekend 2017
-    'OHio2', // Wes Kait Chris Jasper Augusta Jacob
-    'rBfPF', // Statflo Barbecue 2017
-    'oKXXB', // The Fix Ice Cream Shop
-    'XMEfZfv', // Celeste at Trillium Park
-    '0K45k', // Robin's Birthday 2017
-    'nuxA0', // Belleville 2017
-    'RZcF4', // Iceland 2017
-    'bpa5q', // Halloween 2017
-    'Qcxgb', // Halloween at Wes and Morgan's 2017
-    '4DScr', // Statflo at BATL
-    '1ztbC', // Ottawa New Years 2018
-    'IlYgP', // Games night at Jordan and Nicole's
-    'CZYNm', // Justin's birthday 2017
-    'CUPtE', // iQmetrix Winnipeg 2018
-    'Mayck', // Statflo at Rec Room
-    'GtGmk', // Phil's Super Soft Birthday
-    '3b7oE', // Jordyn's 8th Birthday 2018
-    'mUg4z', // Pereira Christmas 2017
-    'OMSHY', // Delayed New Years at Shelbie and Ryan's
-    'gJzWn', // Lizfest 2018
-    'fC54L', // Augusta and Olive'
-    '13FJNN3', // Statflo Potluck 2018
-    'SQ3UDDm', // Pereira Easter 2018
-    'WTO49bj', // Friendsday Farewell Barbecue
-    'pTHw6ZO', // Statflo Product Offsite 2018
-    'Z7eHCbx', // Wes and Morgan and the kids at Trinity Bellwoods
-    'Dq1xiRO', // Mom's Birthday 2018
-    'zisKD4A', // AB BC Road Trip 2018
-    'lBB2fBz', // Trinity Bellwoods with Friendsday friends
-    '6LzWWez', // Wells Hill Park
-    'jTGEisX', // Statflo Barbecue
-    'EjfU9R5', // Cottaging 2018-08-03
-    'snobRBm', // Julia and Aodhan
-    'GxGFWK6', // Matthew and Alex's Wedding
-    '5cl2AOr', // Matthew and Alex's Wedding BW
-    'uo9IRDN', // Canada's Wonderland
-    'OmwE35S', // Fake Boos, Halloween 2018
-    'dBNUoTc', // Julia and Aodhan's Wedding
-    'MqfQ2Bm', // Yasmin's Baby Mikael
-    '3IxD68y', // Curaçao 2018
-    'kCTI9nN', // CF Summit Philadelphia 2019
-    '9arTNBF', // San Francisco 2019
-];
+const allowedAlbums = {
+    "base gallery": '6Hpyr',
+    "Steve's Thailand Trip": 'viBQGRm',
+    "May 2013 Snapshots": '9A5me',
+    "Cadillacs and Cadavers at Stones Place": 'vDwNE',
+    "Rooftop Barbecue at Brian and Melody's": 'kDk0V',
+    "Barbecue at Morgan and Wesley's - 2013-05-29": '5gxSY',
+    "Melody and Brian's barbecue": 'EK1TV',
+    "Dinner at Wes and Morgan's": 'c6C6p',
+    "OCAD beach party": 'uFi37',
+    "Wes and Morgan's baby shower": 'asLHt',
+    "Innisfil 2013": 'hmwlt',
+    "Jasper's baby photos": 'wV2vZ',
+    "Shelbie and Ryan's Birthday Bash": 'gpZyA',
+    "Board Games at Wes and Morgan's": 'jofpF',
+    "Festive Friendsday": 'Byn7D',
+    "Flip Cup Friday": '3F5AU',
+    "Cottage 2014 Connell and Bray": 'OVK35',
+    "Pancake Party at Nicole's": 'TPJD5',
+    "Friendsday Ribsday": 'rgEYp',
+    "Friendsday Go Karting": 'eBf7k',
+    "Innisfil 2014": 'VXBAU',
+    "Badlands with Nicole": '00gld',
+    "Shelbie and Ryan's Birthday 2015": 'x88HI',
+    "Jasper's first birthday 2015": 'fFb08',
+    "Toronto Global Game Jam 2015": '8OXhc',
+    "Belleville Trip": '4p5Kk',
+    "Celeste and Matthew go to Paris": 'SuwHL',
+    "Barbecue at Wes and Morgan's": 'PfzzJ',
+    "Austra and Tribe Called Red": 'c44Dh',
+    "Sandbanks with Nikky and Phil": 'l5ON6',
+    "Labour day at Hanlan's Point": 'DNyjC',
+    "Flea Market": 'UmxwY',
+    "Kait and Chris' wedding": 'crbpP',
+    "Holiday Pictures": 'as2L5',
+    "Matt and Celeste at Dave's Birthday": '7g9Rv',
+    "Wine Tasting trip with Phil and Nikky": 'HEY71',
+    "Owen at Statflo": 'g6uxa',
+    "Celeste's Grad Party": 'q98ao',
+    "Barbecue at Brian and Melody's": 'rOM63',
+    "Toronto Island with Celeste": 'A0d80',
+    "Jasper and Olive": 'huRdJ',
+    "OneEleven Boat Cruise": 'P2ysk',
+    "Julia's Cats": 'q5uqT',
+    "Friendsday Trinity Bellwoods": 'Lk2aW',
+    "Statflo Goodbye Lunch": 'VZJjm',
+    "Dad's Birthday 2016-09-25": 'DDYYq',
+    "Labour Day 2016 at the Cottage": '5JQVZ',
+    "August Long Weekend at the Cottage 2016": 'AlXYh',
+    "Statflo at Mengrai": 'SqJ0r',
+    "Spook Me Like One of Your French Girls (Halloween 2016)": 'hjNvg',
+    "Halloween 2016 at Wes and Morgan's": 'eVOZf',
+    "Statflo Christmas Party 2016": '01B2c',
+    "Pereira Christmas 2016": '3pP6c',
+    "St Lucia": 'mlQaJ',
+    "Pie day at Statflo": 'ang7R',
+    "Canada Day with Jess and Alex": 'WZzKm',
+    "August Long Weekend 2017": 'IGnD1',
+    "Wes Kait Chris Jasper Augusta Jacob": 'OHio2',
+    "Statflo Barbecue 2017": 'rBfPF',
+    "The Fix Ice Cream Shop": 'oKXXB',
+    "Celeste at Trillium Park": 'XMEfZfv',
+    "Robin's Birthday 2017": '0K45k',
+    "Belleville 2017": 'nuxA0',
+    "Iceland 2017": 'RZcF4',
+    "Halloween 2017": 'bpa5q',
+    "Halloween at Wes and Morgan's 2017": 'Qcxgb',
+    "Statflo at BATL": '4DScr',
+    "Ottawa New Years 2018": '1ztbC',
+    "Games night at Jordan and Nicole's": 'IlYgP',
+    "Justin's birthday 2017": 'CZYNm',
+    "iQmetrix Winnipeg 2018": 'CUPtE',
+    "Statflo at Rec Room": 'Mayck',
+    "Phil's Super Soft Birthday": 'GtGmk',
+    "Jordyn's 8th Birthday 2018": '3b7oE',
+    "Pereira Christmas 2017": 'mUg4z',
+    "Delayed New Years at Shelbie and Ryan's": 'OMSHY',
+    "Lizfest 2018": 'gJzWn',
+    "Augusta and Olive'": 'fC54L',
+    "Statflo Potluck 2018": '13FJNN3',
+    "Pereira Easter 2018": 'SQ3UDDm',
+    "Friendsday Farewell Barbecue": 'WTO49bj',
+    "Statflo Product Offsite 2018": 'pTHw6ZO',
+    "Wes and Morgan and the kids at Trinity Bellwoods": 'Z7eHCbx',
+    "Mom's Birthday 2018": 'Dq1xiRO',
+    "AB BC Road Trip 2018": 'zisKD4A',
+    "Trinity Bellwoods with Friendsday friends": 'lBB2fBz',
+    "Wells Hill Park": '6LzWWez',
+    "Statflo Barbecue": 'jTGEisX',
+    "Cottaging 2018-08-03": 'EjfU9R5',
+    "Julia and Aodhan": 'snobRBm',
+    "Matthew and Alex's Wedding": 'GxGFWK6',
+    "Matthew and Alex's Wedding BW": '5cl2AOr',
+    "Canada's Wonderland": 'uo9IRDN',
+    "Fake Boos, Halloween 2018": 'OmwE35S',
+    "Julia and Aodhan's Wedding": 'dBNUoTc',
+    "Yasmin's Baby Mikael": 'MqfQ2Bm',
+    "Curaçao 2018": '3IxD68y',
+    "CF Summit Philadelphia 2019": 'kCTI9nN',
+    "San Francisco 2019": '9arTNBF',
+};
 
 export default allowedAlbums;

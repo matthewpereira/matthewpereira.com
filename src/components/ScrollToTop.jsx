@@ -1,11 +1,32 @@
 import React        from 'react';
 import {withRouter} from 'react-router';
-import $            from 'jquery';
 
 import debounce     from '../helpers/debounce.js';
 import styles       from '../scss/index.scss';
 
-const body = $("html, body");
+const BODYELEMENT = document.getElementsByTagName("BODY")[0];
+
+const hasClass = (haystack, needle) => haystack.indexOf(needle) > -1;
+
+const addClass = (element, classToAdd) => {
+    const classString = element.className;
+
+    const newClass = !hasClass(classString, classToAdd) ? 
+        classString.concat(' ').concat(classToAdd) :
+        classString;
+    
+    return element.className = newClass;
+}
+
+const removeClass = (element, classToRemove) => {
+    const classString = element.className;
+
+    const newClass = hasClass(classString, classToRemove) ? 
+        classString.replace(classToRemove, '') :
+        classString;
+    
+    return element.className = newClass;
+}
 
 // Scroll restoration based on
 // https://reacttraining.com/react-router/web/guides/scroll-restoration.
@@ -24,31 +45,36 @@ const ScrollToTop = withRouter(class ScrollToTopWithoutRouter extends React.Comp
     }
 
     toggleScrollToTopLink = () => debounce(function() {
-        const link = $('[data-scrolltarget]');
+        const link = document.querySelector('[data-scrolltarget]');
 
-        const scrolledPastIntro = $(window).scrollTop() > 1000;
+        const scrolledPastIntro = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop > 1000;
         
-        return (scrolledPastIntro) ? 
-            $(link).addClass(styles.scrollToTopLink_Visible) :
-            $(link).removeClass(styles.scrollToTopLink_Visible);
+        scrolledPastIntro ? 
+            addClass(link, styles.scrollToTopLink_Visible) :
+            removeClass(link, styles.scrollToTopLink_Visible);
+
     }, 250);
     
-    
     scrollToTop(fadeIn = false) {
-        const introHeight = $('[data-reactroot]')
-            .children()
-            .children('div:nth-of-type(2)')
-            .innerHeight();
-    
         const addFadeClass = fadeIn ? 
-            styles.bodyUpdating : 
-            '';
+        styles.bodyUpdating : 
+        '';
+        
+        Promise.resolve()
+            .then(() => {
+                addClass(BODYELEMENT, addFadeClass);
+            })
+            .then(x => new Promise(resolve => setTimeout(() => resolve(x), 250)))
+            .then(() => {
+                const height = document.getElementsByClassName(styles.intro)[0].scrollHeight;
+                const scrollTop = height + 35;
 
-        return body.addClass(addFadeClass)
-            .animate({
-                scrollTop: introHeight + 30
-            }, 750, 'swing', () => body.removeClass(addFadeClass)
-        );
+                document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
+            })
+            .then(x => new Promise(resolve => setTimeout(() => resolve(x), 750)))
+            .then(() => {
+                removeClass(BODYELEMENT, addFadeClass);
+            });
     }
     
     render() {

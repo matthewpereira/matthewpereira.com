@@ -30,3 +30,4 @@ node_modules
 public
 images
 dist
+dist/index.html
