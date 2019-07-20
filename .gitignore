@@ -31,3 +31,6 @@ public
 images
 dist
 dist/index.html
+
+# Ignore env file
+env.js
