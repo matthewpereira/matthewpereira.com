@@ -34,10 +34,12 @@ class AlbumList extends React.Component {
 
     albumListItems = () => {
         let albums = Object.keys(this.props.allowedAlbums);
-        console.log(this.props.allowedAlbums);
+        
         albums = albums.slice(1,albums.length);
         
-        return albums.map((album, iterator) => <option key={iterator} value={this.props.allowedAlbums[album]}>{album}</option>);	
+        const dropdown = ['Choose an album to view...'].concat(albums);
+
+        return dropdown.map((album, iterator) => <option key={iterator} value={this.props.allowedAlbums[album]}>{album}</option>);	
     };
     
     render = () => (
