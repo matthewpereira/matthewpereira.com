@@ -1,0 +1,13 @@
+@import '../scss/media';
+
+.image {
+    border: 1px solid white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.05), 0 8px 10px rgba(0, 0, 0, 0.03);
+    max-height: calc(100vh - 100px);
+    max-width: calc(95vw - 20px);
+    z-index: 2;
+
+    @include media("<=tablet") {
+        max-width: calc(100vw - 30px);
+    }
+}

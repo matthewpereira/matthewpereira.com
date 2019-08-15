@@ -1,0 +1,36 @@
+.gallery__pagination {
+    align-items: center;
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    margin-bottom: 50px;
+    padding: 5px;
+    color: #888;
+
+    & a,
+    & a:focus,
+    & a:visited {
+        color: #888;
+    }
+
+    & a:hover {
+        color: #222;
+        text-decoration: none;
+    }
+}
+
+.gallery__pageNumber a,
+.gallery__pageArrow a,
+.gallery__pageNumber__current {
+    display: inline-block;
+    padding: 12px;
+}
+
+.gallery__pageArrow a:hover {
+    text-decoration: none;
+}
+
+.gallery__pageNumber__current {
+    color: #333;
+    font-size: 24px;
+}
