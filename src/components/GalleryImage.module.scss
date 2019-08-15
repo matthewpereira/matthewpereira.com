@@ -1,0 +1,160 @@
+@import '../scss/media';
+
+.galleryImage {
+    align-items: center;
+    display: flex;
+    height: 110vh;
+    justify-content: center;
+    min-height: 300px;
+
+    & + & {
+        margin-top: 50px;
+    }
+
+    @include media("<desktop") {
+        min-height: auto;
+        height: inherit;
+    }
+}
+
+.galleryImg,
+.galleryVideo {
+    border: 1px solid white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.05), 0 8px 10px rgba(0, 0, 0, 0.03);
+    max-height: calc(100vh - 100px);
+    max-width: calc(95vw - 20px);
+    z-index: 2;
+
+    @include media("<=tablet") {
+        max-width: calc(100vw - 30px);
+    }
+}
+
+.galleryVideo {
+    height: auto;
+    width: auto;
+}
+
+.galleryImage .sidebar,
+.galleryVideo .sidebar {
+    position: absolute;
+    right: 5vw;
+    margin-top: 0vh;
+    z-index: 5;
+
+    @include media("<=tablet") {
+        right: 0vw;
+        margin-top: 0vh;
+        padding-top: 40vh;
+    }
+}
+
+.sidebar.bottom {
+    position: inherit;
+    margin-top: 15px;
+    padding-top: 0;
+}
+
+.headline {
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+}
+
+.gallery .headline {
+    background: #FFF;
+    padding: 0 5px;
+    text-align: left;
+    z-index: 100;
+
+    @include media("<desktop") {
+        font-size: 18px;
+    }
+}
+
+.subtitle {
+    padding: 5px 5px;
+    margin-top: 1px;
+    font-size: 12px;
+}
+
+.gallery .subtitle {
+    opacity: 1;
+    background: #FFF;
+    min-width: 150px;
+    line-height: 1;
+}
+.bottom .subtitle {
+    min-width: auto;
+    text-align: center;
+    padding: 0 50px;
+    line-height: 1.4;
+}
+
+.sidebar {
+    position: absolute;
+    right: 5vw;
+    margin-top: 0vh;
+    z-index: 5;
+
+    @include media("<=tablet") {
+        right: 0vw;
+        margin-top: 0vh;
+        padding-top: 40vh;
+    }
+}
+
+.sidebar .moreInfo {
+    margin-top: 25px;
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.headline {
+    background: #FFF;
+    padding: 0 5px;
+    text-align: left;
+    z-index: 100;
+
+    @include media("<desktop") {
+        font-size: 18px;
+    }
+}
+
+.subtitle {
+    opacity: 1;
+    background: #FFF;
+    min-width: 150px;
+    line-height: 1;
+}
+[data-captions="bottom"] .subtitle {
+    min-width: auto;
+    text-align: center;
+    padding: 0 50px;
+    line-height: 1.4;
+}
+
+.embedContainer { 
+    position: relative; 
+    padding-bottom: 48.55%; 
+    height: 0; 
+    overflow: hidden; 
+    margin: 100px 32px;
+    width: 100%;
+} 
+.embedContainer iframe, 
+.embedContainer object, 
+.embedContainer embed { 
+    position: absolute; 
+    top: 0; 
+    left: 5%; 
+    width: 90%; 
+    height: 100%; 
+
+    @include media("<=tablet") {
+        left: 0;
+        width: 100%;
+    }
+}
