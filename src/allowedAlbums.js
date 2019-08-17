@@ -6,6 +6,7 @@ const allowedAlbums = {
     "Desjardins Montreal": 'BZufJMj',
     "San Francisco 2019": '9arTNBF',
     "CF Summit Philadelphia 2019": 'kCTI9nN',
+    "Jordyn's 9th Birthday 2019": '0ve7Az0',
     "Pereira Christmas 2018": 'IhQzB2T',
     "Curaçao 2018": '3IxD68y',
     "Yasmin's Baby Mikael": 'MqfQ2Bm',
