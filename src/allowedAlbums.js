@@ -2,6 +2,7 @@ const allowedAlbums = {
     "base gallery": '6Hpyr',
     //
     "Pivotal Island 2019": '0877UpO',
+    "Canada Day 2019": 'Q7Q6wUd',
     "San Francisco 2019": '9arTNBF',
     "CF Summit Philadelphia 2019": 'kCTI9nN',
     "Pereira Christmas 2018": 'IhQzB2T',
