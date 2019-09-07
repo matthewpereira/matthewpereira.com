@@ -20,7 +20,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             email: 'mail@matthewpereira.com',
-            title: '',
+            albumName: '',
             description: '',
             loadedImages: [],
             captions: false,
@@ -48,15 +48,33 @@ class App extends React.Component {
         this.fetchImagesFromImgur(albumCode);
     }
     
-    validateAlbum = (albumId) => Object.values(allowedAlbums).indexOf(albumId) > -1;
+    validateAlbum = albumId => Object.values(allowedAlbums).indexOf(albumId) > -1;
+
+    styleCaptions = albumId => albumId !== DEFAULTGALLERY ? 'bottom' : 'right';
+
+    formatTitle = title => title ? 
+		`${title} - Matthew Pereira` : 
+		'Matthew Pereira';
+
+
+    hydrateGalleryState = (data, albumId) => {
+            const captions = this.styleCaptions(albumId);
+            const loadedImages = data.data.images;
+            const description = data.data.description || '';
+	
+	    document.title = this.formatTitle(data.data.title);    
+	    
+	    const albumName = data.data.title || 'Matthew Pereira';
+
+    	    this.setState({
+	        loadedImages,
+	        albumName,
+	        description,
+	        captions
+	    });
+	}
 
     fetchImagesFromImgur(albumId) {
-        let self = this;
-        let loadedImages = [];
-        let title = '';
-        let description = '';
-        let captions = albumId !== DEFAULTGALLERY ? 'bottom' : 'right';
-        
         const details = { 
             headers: {
                 'Authorization': IMGUR_AUTHORIZATION
@@ -65,19 +83,7 @@ class App extends React.Component {
 
         fetch(`https://api.imgur.com/3/album/${albumId}`, details)
             .then(data => data.json())
-            .then(data => {
-                title = data.data.title ? data.data.title : 'Matthew Pereira';
-                loadedImages = data.data.images;
-                description = data.data.description || '';
-                document.title = title !== 'Matthew Pereira' ? title + ' - Matthew Pereira' : title;
-
-                self.setState({
-                    loadedImages,
-                    title,
-                    description,
-                    captions
-                });
-            })
+            .then(data => this.hydrateGalleryState(data, albumId))
             .catch(error => {
                 console.error("Abort, abort!", error);
             });
@@ -95,7 +101,7 @@ class App extends React.Component {
             <AlbumList allowedAlbums={allowedAlbums} />
             <Email email={this.state.email} />
             <Intro
-                title={this.state.title}
+                title={this.state.albumName}
                 description={this.state.description}
             />
             <ScrollArrow 
