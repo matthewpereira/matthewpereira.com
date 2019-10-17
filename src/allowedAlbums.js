@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     //
+    "Tobermory and Cyprus Lake Camping": 's23So5d',
     "Pivotal Island 2019": '0877UpO',
     "Canada Day 2019": 'Q7Q6wUd',
     "Desjardins Montreal": 'BZufJMj',
