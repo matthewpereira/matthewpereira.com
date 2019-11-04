@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     //
+    "Connell's 16th Birthday Party": '5h8i28I',
     "Tobermory and Cyprus Lake Camping": 's23So5d',
     "Pivotal Beach Day 2019": '5Fm0PDU',
     "Pivotal Island 2019": '0877UpO',
