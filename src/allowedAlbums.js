@@ -12,6 +12,7 @@ const allowedAlbums = {
     "Jordyn's 9th Birthday 2019": '0ve7Az0',
     "Pereira Christmas 2018": 'IhQzB2T',
     "Curaçao 2018": '3IxD68y',
+    "Justin's Birthday 2018": 'CZYNm', 
     "Yasmin's Baby Mikael": 'MqfQ2Bm',
     "Julia and Aodhan's Wedding": 'dBNUoTc',
     "Fake Boos, Halloween 2018": 'OmwE35S',
