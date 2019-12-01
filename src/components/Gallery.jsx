@@ -26,7 +26,7 @@ const Gallery = ({ images, captions, location }) => {
         let start = 0 + pageNumber * IMAGES_PER_PAGE - IMAGES_PER_PAGE;
 
         currentImages = images.slice(start, start + IMAGES_PER_PAGE);
-        preloadImage = images.slice(start + IMAGES_PER_PAGE, start + IMAGES_PER_PAGE + 1);
+        preloadImage  = images.slice(start + IMAGES_PER_PAGE, start + IMAGES_PER_PAGE + 1);
     }
 
     const pageCount = Math.ceil(images.length / IMAGES_PER_PAGE);

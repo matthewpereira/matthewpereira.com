@@ -17,10 +17,12 @@ class AlbumList extends React.Component {
 
     konami(callback) {
         let kkeys = [];
-        // up,up,down,down,left,right,left,right,B,A
+
         const konami = '38,38,40,40,37,39,37,39,66,65';
+
         return event => {
             kkeys.push(event.keyCode);
+
             if (kkeys.toString().indexOf(konami) >= 0) {
                 callback();
                 kkeys = [];
@@ -33,13 +35,19 @@ class AlbumList extends React.Component {
     }
 
     albumListItems = () => {
-        let albums = Object.keys(this.props.allowedAlbums);
-        
-        albums = albums.slice(1,albums.length);
+        const albums = Object.keys(this.props.allowedAlbums)
+            .slice(1,this.props.allowedAlbums.length);
         
         const dropdown = ['Choose an album to view...'].concat(albums);
 
-        return dropdown.map((album, iterator) => <option key={iterator} value={this.props.allowedAlbums[album]}>{album}</option>);	
+        return dropdown.map((album, iterator) => 
+            <option 
+                key={iterator} 
+                value={this.props.allowedAlbums[album]}
+            >
+                {album}
+            </option>
+        );	
     };
     
     render = () => (
@@ -56,9 +64,7 @@ class AlbumList extends React.Component {
                     'background': 'rgba(255,255,255,0.75)',
                 }}
             >
-                <select 
-                    onChange={this.onAlbumListChange}
-                >
+                <select onChange={this.onAlbumListChange}>
                     {this.albumListItems()}
                 </select>
             </div>
