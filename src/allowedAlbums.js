@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     //
+    "Julia & Aodhan's Baby Shower": 'LWmkCoX',
     "Connell's 16th Birthday Party": '5h8i28I',
     "Spring One Platform 2019": 'u8o2fDA',
     "Tobermory and Cyprus Lake Camping": 's23So5d',
