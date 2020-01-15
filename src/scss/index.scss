@@ -144,12 +144,18 @@ a {
     position: absolute;
     right: 5vw;
     margin-top: 0vh;
+    opacity: 0.9;
+    transition: opacity 0.5s ease-in-out;
     z-index: 5;
 
     @include media("<=tablet") {
         right: 0vw;
-        margin-top: 0vh;
-        padding-top: 40vh;
+        margin-top: 25px;
+    }
+
+    &:hover {
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
     }
 }
 
