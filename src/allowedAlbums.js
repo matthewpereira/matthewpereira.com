@@ -1,9 +1,11 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     //
+    "Pivotal X Curling": 'o33snyp',
     "Julia & Aodhan's Baby Shower": 'LWmkCoX',
     "Connell's 16th Birthday Party": '5h8i28I',
     "Spring One Platform 2019": 'u8o2fDA',
+    "Dad's 75th Birthday Party": '7OkSeFo',
     "Tobermory and Cyprus Lake Camping": 's23So5d',
     "Pivotal Beach Day 2019": '5Fm0PDU',
     "Pivotal Island 2019": '0877UpO',
