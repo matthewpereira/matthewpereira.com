@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     //
+    "Lilith Robin Wylie Freake": 'J5lWN33',
     "Pivotal X Curling": 'o33snyp',
     "Julia & Aodhan's Baby Shower": 'LWmkCoX',
     "Connell's 16th Birthday Party": '5h8i28I',
