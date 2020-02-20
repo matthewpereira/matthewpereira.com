@@ -3,6 +3,7 @@ import {withRouter} from 'react-router';
 
 import debounce     from '../helpers/debounce.js';
 import styles       from './ScrollToTop.module.scss';
+import introStyles  from './Intro.module.scss';
 
 const BODYELEMENT = document.getElementsByTagName("BODY")[0];
 
@@ -60,15 +61,13 @@ const ScrollToTop = withRouter(class ScrollToTopWithoutRouter extends React.Comp
         styles.bodyUpdating : 
         '';
         
-        console.log(addFadeClass);
-        
         Promise.resolve()
             .then(() => {
                 addClass(BODYELEMENT, addFadeClass);
             })
             .then(x => new Promise(resolve => setTimeout(() => resolve(x), 250)))
             .then(() => {
-                const height = document.getElementsByClassName(styles.intro)[0].scrollHeight;
+                const height = document.getElementsByClassName(introStyles.intro)[0].scrollHeight;
                 const scrollTop = height + 35;
 
                 document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
