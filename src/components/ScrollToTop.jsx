@@ -1,8 +1,8 @@
-import React        from 'react';
-import {withRouter} from 'react-router';
+import React          from 'react';
+import { withRouter } from 'react-router';
 
-import debounce     from '../helpers/debounce.js';
-import styles       from './ScrollToTop.module.scss';
+import debounce       from '../helpers/debounce.js';
+import styles         from './ScrollToTop.module.scss';
 
 const BODYELEMENT = document.getElementsByTagName("BODY")[0];
 
@@ -66,8 +66,8 @@ const ScrollToTop = withRouter(class ScrollToTopWithoutRouter extends React.Comp
             })
             .then(x => new Promise(resolve => setTimeout(() => resolve(x), 250)))
             .then(() => {
-                const height = document.getElementsByClassName(styles.intro)[0].scrollHeight;
-                const scrollTop = height - 35;
+                const height = window.innerHeight;
+                const scrollTop = height + 35;
 
                 document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
             })

@@ -122,7 +122,7 @@ const allowedAlbums = {
     "Grandma's 85th Birthday": 'hYG5cJd',
     "Trampolines at the Cottage 2006": '72m26nP',
     "Steve's 25th Birthday": 'OqlpRiS',
-    "Connell's 5th Birthday": 'UV3d38o,
+    "Connell's 5th Birthday": 'UV3d38o',
     "Dominican Republic 2003": 'uKtEcMZ',
     "Jennifer and Kevin's Wedding": '3WUHhg6',
 };
