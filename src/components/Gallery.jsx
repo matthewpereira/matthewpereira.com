@@ -6,7 +6,7 @@ import Pagination     from './Pagination.jsx';
 import ScrollToTop    from './ScrollToTop';
 import PreloadImage   from './PreloadImage';
 
-import styles         from '../scss/index.scss';
+import styles         from './Gallery.module.scss';
 
 const IMAGES_PER_PAGE = 50;  
 

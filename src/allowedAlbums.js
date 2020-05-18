@@ -1,8 +1,10 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     //
+    "Morocco": 'N7XPO6P',
     "Lilith Robin Wylie Freake": 'J5lWN33',
     "Pivotal X Curling": 'o33snyp',
+    "Pereira Christmas 2019": 'rJzFm6W',
     "Julia & Aodhan's Baby Shower": 'LWmkCoX',
     "Connell's 16th Birthday Party": '5h8i28I',
     "Spring One Platform 2019": 'u8o2fDA',
@@ -114,6 +116,15 @@ const allowedAlbums = {
     "Cadillacs and Cadavers at Stones Place": 'vDwNE',
     "May 2013 Snapshots": '9A5me',
     "Steve's Thailand Trip": 'viBQGRm',
+    "Christmas in London 2010": 'WDlmaEC',
+    "Samson and Delilah Katz": 'toCaXNl',
+    "Connell and Brayden Cellphone Pics": 'rFSfHCE',
+    "Grandma's 85th Birthday": 'hYG5cJd',
+    "Trampolines at the Cottage 2006": '72m26nP',
+    "Steve's 25th Birthday": 'OqlpRiS',
+    "Connell's 5th Birthday": 'UV3d38o,
+    "Dominican Republic 2003": 'uKtEcMZ',
+    "Jennifer and Kevin's Wedding": '3WUHhg6',
 };
 
 export default allowedAlbums;
