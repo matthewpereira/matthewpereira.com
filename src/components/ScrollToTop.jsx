@@ -60,8 +60,6 @@ const ScrollToTop = withRouter(class ScrollToTopWithoutRouter extends React.Comp
         styles.bodyUpdating : 
         '';
         
-        console.log(addFadeClass);
-        
         Promise.resolve()
             .then(() => {
                 addClass(BODYELEMENT, addFadeClass);
@@ -69,7 +67,7 @@ const ScrollToTop = withRouter(class ScrollToTopWithoutRouter extends React.Comp
             .then(x => new Promise(resolve => setTimeout(() => resolve(x), 250)))
             .then(() => {
                 const height = document.getElementsByClassName(styles.intro)[0].scrollHeight;
-                const scrollTop = height + 35;
+                const scrollTop = height - 35;
 
                 document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
             })

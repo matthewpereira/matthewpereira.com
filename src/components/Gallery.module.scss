@@ -1,0 +1,85 @@
+@import '../scss/media';
+
+.gallery .section {
+    @include media("<=tablet") {
+        flex-direction: column-reverse;
+    }
+}
+
+.gallery[data-captions="bottom"] .section {
+    flex-direction: column-reverse;
+}
+
+.gallery .image,
+.gallery .video {
+    border: 1px solid white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.05), 0 8px 10px rgba(0, 0, 0, 0.03);
+    max-height: calc(100vh - 100px);
+    max-width: calc(95vw - 20px);
+    z-index: 2;
+
+    @include media("<=tablet") {
+        max-width: calc(100vw - 30px);
+    }
+}
+
+.video {
+    height: auto;
+    width: auto;
+}
+
+.gallery .sidebar {
+    position: absolute;
+    right: 5vw;
+    margin-top: 0vh;
+    opacity: 0.9;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 5;
+
+    @include media("<=tablet") {
+        position: inherit;
+        margin-top: 15px;
+        padding-top: 0;
+    }
+
+    &:hover {
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+}
+
+[data-captions="bottom"] .sidebar {
+    position: inherit;
+    margin-top: 15px;
+    padding-top: 0;
+}
+
+.headline {
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+}
+
+.gallery .headline {
+    background: #FFF;
+    padding: 0 5px;
+    text-align: left;
+    z-index: 100;
+
+    @include media("<desktop") {
+        font-size: 18px;
+    }
+}
+
+.subtitle {
+    padding: 5px 5px;
+    margin-top: 1px;
+    font-size: 12px;
+}
+
+.gallery .subtitle {
+    opacity: 1;
+    background: #FFF;
+    min-width: 150px;
+    line-height: 1;
+}

@@ -1,5 +1,5 @@
 import React  from 'react';
-import styles from '../scss/index.scss';
+import styles from './PreloadImage.module.scss';
 
 // Preload the first image in the next set when the user reaches the pagination component
 const PreloadImage = ({ image }) => {

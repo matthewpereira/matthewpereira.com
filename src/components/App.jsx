@@ -9,9 +9,9 @@ import ScrollArrow         from './ScrollArrow.jsx';
 
 import allowedAlbums       from '../allowedAlbums.js';
 
-import styles              from '../scss/index.scss';
-
 import IMGUR_AUTHORIZATION from '../env';
+
+require('./App.module.scss');
 
 const DEFAULTGALLERY = '6Hpyr';
 
@@ -90,8 +90,8 @@ class App extends React.Component {
     }
 
     onScrollClick = () => {
-        const height = document.getElementsByClassName(styles.intro)[0].scrollHeight;
-        const scrollTop = height + 35;
+        const height = window.innerHeight;
+        const scrollTop = height - 35;
 
         document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
     };
