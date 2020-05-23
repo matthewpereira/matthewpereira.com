@@ -1,7 +1,13 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     //
-    "Morocco": 'N7XPO6P',
+    "Essaouira": 'xpQ6wBg',
+    "Casablanca": 'RH6bfwp',
+    "Tangier": 'JqqzFEE',
+    "Chefchouen": 'tJkhQXP',
+    "Fes": '6nynvVU',
+    "Desert Tour": 'KiyHBDY',
+    "Marrakesh": '3orEGgh',
     "Lilith Robin Wylie Freake": 'J5lWN33',
     "Pivotal X Curling": 'o33snyp',
     "Pereira Christmas 2019": 'rJzFm6W',
