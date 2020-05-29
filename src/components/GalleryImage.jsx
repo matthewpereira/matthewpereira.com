@@ -3,6 +3,8 @@ import LazyLoad             from 'react-lazyload';
 import Section              from './Section.jsx';
 import styles               from './GalleryImage.module.scss';
 
+import parseStringForLinks  from '../helpers/textLinks';
+
 import { emojify } from 'react-emojione';
 
 const ecfg = {
@@ -59,7 +61,7 @@ const GalleryImage = ({ image, index, type, width, height, captions }) => {
         <Section type="image" captions={captions}>
             <div className={styles.sidebar + ' ' + styles[captions]}>
                 {image.title ? <div className={styles.headline}>{emojify(image.title, ecfg)}</div> : null}
-                {image.description ? <div className={styles.subtitle}>{emojify(image.description, ecfg)}</div> : null}
+                {image.description ? <div className={styles.subtitle}>{parseStringForLinks(emojify(image.description, ecfg))}</div> : null}
                 {image.info ? <div className={styles.moreInfo}>{emojify(image.info, ecfg)}</div> : null}
             </div>
             <LazyLoad height={window.innerHeight} offset={3000}>
