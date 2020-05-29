@@ -84,6 +84,12 @@
     font-size: 12px;
 }
 
+.subtitle a,
+.subtitle a:visited {
+    color: #002fa7;
+    border-bottom: 1px dotted #002fa751;
+}
+
 .gallery .subtitle {
     opacity: 1;
     background: #FFF;
