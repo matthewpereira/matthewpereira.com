@@ -57,6 +57,10 @@ const parseStringForLinks = (caption) => {
 
     const cleanCaption = Array.isArray(caption) ? caption[0] : caption;
 
+    if (typeof caption === 'object') {
+        return caption;
+    }
+
     const linkElements = hydrateLinkElements(cleanCaption);
 
     if (!Array.isArray(linkElements)) {
