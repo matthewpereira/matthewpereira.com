@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     //
+    "Morocco Highlights": 'vrqIbDB',
     "Essaouira": 'xpQ6wBg',
     "Casablanca": 'RH6bfwp',
     "Tangier": 'JqqzFEE',
