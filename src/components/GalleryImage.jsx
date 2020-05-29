@@ -5,17 +5,8 @@ import styles               from './GalleryImage.module.scss';
 
 import parseStringForLinks  from '../helpers/textLinks';
 
-import { emojify } from 'react-emojione';
-
-const ecfg = {
-    convertShortnames: true,
-    convertUnicode: true,
-    convertAscii: true,
-    style: {
-        height: 24,
-        top: -1,
-    }
-};
+import { emojify }          from 'react-emojione';
+import ecfg                 from './ecfg';
 
 const GalleryImage = ({ image, index, type, width, height, captions }) => {
     // Detect youtube videos
@@ -61,7 +52,7 @@ const GalleryImage = ({ image, index, type, width, height, captions }) => {
         <Section type="image" captions={captions}>
             <div className={styles.sidebar + ' ' + styles[captions]}>
                 {image.title ? <div className={styles.headline}>{emojify(image.title, ecfg)}</div> : null}
-                {image.description ? <div className={styles.subtitle}>{parseStringForLinks(emojify(image.description, ecfg))}</div> : null}
+                {image.description ? <div className={styles.subtitle}>{parseStringForLinks(image.description)}</div> : null}
                 {image.info ? <div className={styles.moreInfo}>{emojify(image.info, ecfg)}</div> : null}
             </div>
             <LazyLoad height={window.innerHeight} offset={3000}>

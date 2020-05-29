@@ -1,4 +1,6 @@
-import React from 'react';
+import React       from 'react';
+import { emojify } from 'react-emojione';
+import ecfg        from '../components/ecfg';
 
 const mdLinkGlobal = /\[([\w\s\d'"]+)\]\((https?:\/\/[\w\d./?=#]+)\)/g;
 const mdLink = /\[([\w\s\d'"]+)\]\((https?:\/\/[\w\d./?=#]+)\)/;
@@ -27,8 +29,8 @@ const formatLinkObject = matches => {
 
 const hydrateLinkElements = (cleanCaption) => {
     let matches = cleanCaption.match(mdLinkGlobal);
-    
-    return matches ? formatLinkObject(matches) : cleanCaption;
+
+    return matches ? formatLinkObject(matches) : false;
 }
 
 const formatCaption = (caption, links) => {
@@ -54,20 +56,23 @@ const formatCaption = (caption, links) => {
 }
 
 const parseStringForLinks = (caption) => { 
-
     const cleanCaption = Array.isArray(caption) ? caption[0] : caption;
-
-    if (typeof caption === 'object') {
-        return caption;
-    }
 
     const linkElements = hydrateLinkElements(cleanCaption);
 
-    if (!Array.isArray(linkElements)) {
-        return cleanCaption;
+    if (!linkElements.length) {
+        return emojify(cleanCaption, ecfg);
     }
 
-    return formatCaption(cleanCaption, linkElements);
+    const formattedCaption = formatCaption(cleanCaption, linkElements);
+
+    const formattedCaptionWithEmoji = formattedCaption.map(captionFragment => (
+        typeof captionFragment === 'string' ? 
+            emojify(captionFragment, ecfg) : 
+            captionFragment
+    ));
+
+    return formattedCaptionWithEmoji;
 };
 
 export default parseStringForLinks;
