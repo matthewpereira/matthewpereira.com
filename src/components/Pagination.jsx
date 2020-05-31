@@ -23,7 +23,7 @@ const NextButton = ({currentPage, pageCount, pathName }) => {
 
     return (
         <div className={styles.gallery__pageArrow}>
-            <Link to={`${pathName}#${currentPage + 1}`}>&gt;</Link>
+            <Link to={`${pathName}#${parseInt(currentPage) + 1}`}>&gt;</Link>
         </div>
     )
 };
