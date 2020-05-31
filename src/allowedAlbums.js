@@ -10,6 +10,8 @@ const allowedAlbums = {
     "Marrakesh": '3orEGgh',
     "Lilith Robin Wylie Freake": 'J5lWN33',
     "Pivotal X Curling": 'o33snyp',
+    "Jordyn's 10th Birthday": 'IQQ0aRY',
+    "Concourse at Kinka Izakaya": 'aUCl8WH',
     "Pereira Christmas 2019": 'rJzFm6W',
     "Julia & Aodhan's Baby Shower": 'LWmkCoX',
     "Connell's 16th Birthday Party": '5h8i28I',
