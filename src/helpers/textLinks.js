@@ -3,11 +3,13 @@ import { emojify } from 'react-emojione';
 import ecfg        from '../components/ecfg';
 
 const mdLinkGlobal = /\[([\w\s\d'"]+)\]\((https?:\/\/[\w\d./?=#]+)\)/g;
-const mdLink = /\[([\w\s\d'"]+)\]\((https?:\/\/[\w\d./?=#]+)\)/;
+const mdLink       = /\[([\w\s\d'"]+)\]\((https?:\/\/[\w\d./?=#]+)\)/;
 
 const hydrateLinkElement = (linkText, url) => (
     <a href={url} key={linkText.substr(0,4)}>{linkText}</a>
 );
+
+const stripArrayToString = array => Array.isArray(array) ? array[0] : array;
 
 const formatLinkObject = matches => {
     let output = [];
@@ -21,7 +23,6 @@ const formatLinkObject = matches => {
             linkElement,
             original: linkArray[0]
         });
-
     });
 
     return output;
@@ -56,7 +57,7 @@ const formatCaption = (caption, links) => {
 }
 
 const parseStringForLinks = (caption) => { 
-    const cleanCaption = Array.isArray(caption) ? caption[0] : caption;
+    const cleanCaption = stripArrayToString(caption);
 
     const linkElements = hydrateLinkElements(cleanCaption);
 
