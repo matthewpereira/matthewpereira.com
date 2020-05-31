@@ -71,7 +71,7 @@ const ScrollToTop = withRouter(class ScrollToTopWithoutRouter extends React.Comp
 
                 document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
             })
-            .then(x => new Promise(resolve => setTimeout(() => resolve(x), 750)))
+            .then(x => new Promise(resolve => setTimeout(() => resolve(x), 1250)))
             .then(() => {
                 removeClass(BODYELEMENT, addFadeClass);
             });

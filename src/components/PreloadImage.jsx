@@ -1,20 +1,20 @@
 import React  from 'react';
-import styles from './PreloadImage.module.scss';
 
 // Preload the first image in the next set when the user reaches the pagination component
-const PreloadImage = ({ image }) => {
-    return (
-        <img
-            alt="-"
-            src={image.link}
-            className={styles.image}
-            style={{
-                height: 0, 
-                width: 0, 
-                opacity: 0
-            }}
-        />
-    );
-}
+const PreloadImage = ({ image }) => (
+    <img
+        alt="Preloading..."
+        key={image.id}
+        src={image.link}
+        style={{
+            height: 1, 
+            width: 1, 
+            opacity: 0.1,
+            position: 'absolute',
+            left: -1,
+            bottom: -100
+        }}
+    />
+);
 
 export default PreloadImage;

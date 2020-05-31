@@ -10,6 +10,8 @@ import styles         from './Gallery.module.scss';
 
 const IMAGES_PER_PAGE = 50;  
 
+const sliceToIndex = (images, index) => images.slice(index, index + 1);
+
 const Gallery = ({ images, captions, location }) => {
     if (!images.length) {
         return null;
@@ -19,14 +21,30 @@ const Gallery = ({ images, captions, location }) => {
     const pageNumber = hash.length && hash > 0 ? hash : 1;
 
     let currentImages = images;
-    let preloadImage = [];
+    let preloadImages = [];
 
     // Split big lots of images, and use page numbers to choose which set to display
     if (images.length > IMAGES_PER_PAGE) {
-        let start = 0 + pageNumber * IMAGES_PER_PAGE - IMAGES_PER_PAGE;
+        const start = 0 + pageNumber * IMAGES_PER_PAGE - IMAGES_PER_PAGE;
 
         currentImages = images.slice(start, start + IMAGES_PER_PAGE);
-        preloadImage  = images.slice(start + IMAGES_PER_PAGE, start + IMAGES_PER_PAGE + 1);
+        
+        const laterImagesToPreload = (images.length > start + IMAGES_PER_PAGE);
+        const earlierImagesToPreload = (start !== 0);
+
+        if (laterImagesToPreload) {
+            preloadImages.push(...[
+                sliceToIndex(images, start + IMAGES_PER_PAGE)[0], 
+                sliceToIndex(images, start + IMAGES_PER_PAGE + 1)[0], 
+            ]);
+        }
+
+        if (earlierImagesToPreload) {
+            preloadImages.push(...[
+                sliceToIndex(images, start - 2)[0],
+                sliceToIndex(images, start - 1)[0]
+            ]);
+        }
     }
 
     const pageCount = Math.ceil(images.length / IMAGES_PER_PAGE);
@@ -44,7 +62,10 @@ const Gallery = ({ images, captions, location }) => {
                     captions={captions}
                 />
             )}
-            {preloadImage.length ? <PreloadImage image={preloadImage[0]} /> : null}
+            {preloadImages ? 
+                preloadImages.map((image, index) => <PreloadImage key={index} image={image} />) :
+                null
+            }
             <Pagination pageCount={pageCount} currentPage={pageNumber} />
             <ScrollToTop />
         </div>
