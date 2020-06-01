@@ -4,7 +4,7 @@ import { Link }       from 'react-router-dom';
 
 import styles         from './Pagination.module.scss';
 
-const PrevButton = ({ currentPage, pageCount, pathName }) => {
+const PrevButton = ({ currentPage, pathName }) => {
     if (parseInt(currentPage) < 2) {
         return null;
     }
