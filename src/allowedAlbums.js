@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     //
+    "Lily - 2020/09/26": 'IBCIeY6',
     "Essaouira": 'xpQ6wBg',
     "Casablanca": 'RH6bfwp',
     "Tangier": 'JqqzFEE',
@@ -54,6 +55,7 @@ const allowedAlbums = {
     "Phil's Super Soft Birthday": 'GtGmk',
     "Statflo at Rec Room": 'Mayck',
     "iQmetrix Winnipeg 2018": 'CUPtE',
+    "Darya's Statflo Goodbye": 'lK4Tll3',
     "Justin's birthday 2017": 'CZYNm',
     "Games night at Jordan and Nicole's": 'IlYgP',
     "Ottawa New Years 2018": '1ztbC',

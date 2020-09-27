@@ -1,8 +1,9 @@
 import React               from 'react';
 import { withRouter }      from 'react-router';
 
+import AboutPage           from './AboutPage.jsx';
 import AlbumList           from './AlbumList.jsx';
-import Email               from './Email.jsx';
+import SidebarButton       from './SidebarButton.jsx';
 import Gallery             from './Gallery.jsx';
 import Intro               from './Intro.jsx';
 import ScrollArrow         from './ScrollArrow.jsx';
@@ -11,7 +12,7 @@ import allowedAlbums       from '../allowedAlbums.js';
 
 import IMGUR_AUTHORIZATION from '../env';
 
-require('./App.module.scss');
+import styles from './App.module.scss';
 
 const DEFAULTGALLERY = '6Hpyr';
 
@@ -19,21 +20,26 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: 'mail@matthewpereira.com',
+            email: 'mailto:mail@matthewpereira.com',
             albumName: '',
             description: '',
             loadedImages: [],
             captions: false,
+            aboutVisible: false
         };
 
         this.onScrollClick        = this.onScrollClick.bind(this);
         this.fetchImagesFromImgur = this.fetchImagesFromImgur.bind(this);
         this.validateAlbum        = this.validateAlbum.bind(this);
+        this.handleAboutClick     = this.handleAboutClick.bind(this);
     }
 
     componentWillMount() {
         document.getElementById('app').classList.remove("app__loading");
         
+        // Check for About page string
+        console.log(Object.keys(this.props.match));
+
         // Backwards compatibility for ?something paths
         const albumCode = Object.keys(this.props.match.params).length ?
             this.props.match.params.albumId :
@@ -44,7 +50,7 @@ class App extends React.Component {
 
             return this.fetchImagesFromImgur(DEFAULTGALLERY);
         }
-        
+
         this.fetchImagesFromImgur(albumCode);
     }
     
@@ -96,10 +102,44 @@ class App extends React.Component {
         document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
     };
 
-    render = () => (
+    handleAboutClick = () => {
+        this.setState({
+            aboutVisible: !this.state.aboutVisible
+        });
+    }
+
+    render = () => this.state.aboutVisible ? (
+        <div>
+            <div className={styles.sidebar}>
+                <SidebarButton 
+                    hyperlink={this.state.email}
+                    label="EMAIL"
+                    target="_blank" 
+                />
+                <SidebarButton 
+                    onClick={this.handleAboutClick}
+                    label="PHOTOGRAPHY"
+                />
+            </div>
+            <AboutPage 
+                handleClick={this.handleAboutClick}
+                visible={this.state.aboutVisible} 
+            />
+        </div>
+        ) : (
         <div>
             <AlbumList allowedAlbums={allowedAlbums} />
-            <Email email={this.state.email} />
+            <div className={styles.sidebar}>
+                <SidebarButton 
+                    hyperlink={this.state.email}
+                    label="EMAIL"
+                    target="_blank" 
+                />
+                <SidebarButton 
+                    onClick={this.handleAboutClick}
+                    label="ABOUT"
+                />
+            </div>
             <Intro
                 title={this.state.albumName}
                 description={this.state.description}

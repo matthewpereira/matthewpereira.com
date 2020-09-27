@@ -25,3 +25,18 @@ a {
     opacity: 0;
     transition: 0.15s opacity ease-out;
 }
+
+.sidebar {
+    display: flex;
+    height: 18px;
+    justify-content: space-around;
+    left: -65px;
+    position: fixed;
+    top: calc(50vh - 20px);
+    transform: rotateZ(270deg);
+    width: 160px;
+
+    @include media("<=tablet") {
+       
+    }
+}
