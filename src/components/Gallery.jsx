@@ -35,13 +35,11 @@ const Gallery = ({ images, captions, location }) => {
         if (laterImagesToPreload) {
             preloadImages.push(...[
                 sliceToIndex(images, start + IMAGES_PER_PAGE)[0], 
-                sliceToIndex(images, start + IMAGES_PER_PAGE + 1)[0], 
             ]);
         }
 
         if (earlierImagesToPreload) {
             preloadImages.push(...[
-                sliceToIndex(images, start - 2)[0],
                 sliceToIndex(images, start - 1)[0]
             ]);
         }
