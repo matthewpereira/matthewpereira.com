@@ -47,7 +47,11 @@ const ScrollToTop = withRouter(class ScrollToTopWithoutRouter extends React.Comp
     toggleScrollToTopLink = () => debounce(function() {
         const link = document.querySelector('[data-scrolltarget]');
 
-        const scrolledPastIntro = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop > 1000;
+	if (!link) {
+		return
+	}
+        
+	const scrolledPastIntro = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop > 1000;
         
         scrolledPastIntro ? 
             addClass(link, styles.scrollToTopLink_Visible) :

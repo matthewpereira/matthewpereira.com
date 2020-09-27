@@ -1,0 +1,33 @@
+@import '../scss/media';
+
+.headline {
+    display: block;
+    font-weight: normal;
+    font-size: 24px;
+    text-align: center;
+    padding: 9px 10px 10px;
+}
+.subtitle {
+    padding: 5px 5px;
+    margin-top: 1px;
+    font-size: 12px;
+}
+.aboutInner {
+    width: 80vw;
+    margin: 41vh auto;
+    text-align: center;
+}
+
+.aboutLink { 
+    color: #333;
+    margin: -4px;
+    padding: 4px;
+    transition: all 0.5s ease-in-out;
+    text-transform: uppercase;
+
+    &:hover {
+        color: #FFF;
+	background: #000;
+	transition: all 0.5s ease-in-out;
+    }
+}
