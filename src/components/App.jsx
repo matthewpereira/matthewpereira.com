@@ -37,9 +37,6 @@ class App extends React.Component {
     componentWillMount() {
         document.getElementById('app').classList.remove("app__loading");
         
-        // Check for About page string
-        console.log(Object.keys(this.props.match));
-
         // Backwards compatibility for ?something paths
         const albumCode = Object.keys(this.props.match.params).length ?
             this.props.match.params.albumId :
@@ -70,9 +67,9 @@ class App extends React.Component {
 	
 	    document.title = this.formatTitle(data.data.title);    
 	    
-	    const albumName = data.data.title || 'Matthew Pereira';
-
-    	    this.setState({
+        const albumName = data.data.title || 'Matthew Pereira';
+        
+        this.setState({
 	        loadedImages,
 	        albumName,
 	        description,
