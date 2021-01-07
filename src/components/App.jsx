@@ -16,6 +16,15 @@ import styles from './App.module.scss';
 
 const DEFAULTGALLERY = '6Hpyr';
 
+const IN_CASE_OF_ERROR = {
+	"data": {
+		"id": "6Hpyr",
+		"title": "Matthew Pereira",
+		"description": "Toronto, Canada",
+		"images": [],
+	}
+}
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -89,6 +98,7 @@ class App extends React.Component {
             .then(data => this.hydrateGalleryState(data, albumId))
             .catch(error => {
                 console.error("Abort, abort!", error);
+                this.hydrateGalleryState(IN_CASE_OF_ERROR, albumId);
             });
     }
 
