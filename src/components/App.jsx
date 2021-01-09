@@ -62,7 +62,7 @@ class App extends React.Component {
 
     styleCaptions = albumId => albumId !== DEFAULTGALLERY ? 'bottom' : 'right';
 
-    formatTitle = title => title ? 
+    formatTitle = title => title && title !== 'Matthew Pereira' ? 
 		`${title} - Matthew Pereira` : 
 		'Matthew Pereira';
 
