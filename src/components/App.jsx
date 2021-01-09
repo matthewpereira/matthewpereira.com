@@ -19,8 +19,6 @@ const DEFAULTGALLERY = '6Hpyr';
 const IN_CASE_OF_ERROR = {
 	"data": {
 		"id": "6Hpyr",
-		"title": "Matthew Pereira",
-		"description": "Toronto, Canada",
 		"images": [],
 	}
 }
