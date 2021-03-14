@@ -9,11 +9,11 @@ const AboutPage = () => (
                 Matthew Pereira
             </div>
             <div className={styles.subtitle}>
-                Senior Product Designer, VMware Inc. Portfolio available by request.
-	    </div>
-	    <div className={styles.subtitle}>
-	        <a className={styles.aboutLink} href="https://www.linkedin.com/in/matthewpereira/">Contact at Linkedin</a>
-	    </div>
+                Design Lead for Application Operations, VMware Inc.
+            </div>
+            <div className={styles.subtitle}>
+                <a className={styles.aboutLink} href="https://portfolio.matthewpereira.com/">Visit Product Design Portfolio</a> &nbsp;&nbsp;or&nbsp;&nbsp; <a className={styles.aboutLink} href="https://www.linkedin.com/in/matthewpereira/">Contact at Linkedin</a>
+            </div>
         </div>
     </div>
 );

@@ -13,7 +13,7 @@ const IMAGES_PER_PAGE = 50;
 const sliceToIndex = (images, index) => images.slice(index, index + 1);
 
 const Gallery = ({ images, captions, location }) => {
-    if (!images.length) {
+    if (!images || !images.length) {
         return null;
     }
   

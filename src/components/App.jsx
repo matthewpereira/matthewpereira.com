@@ -150,7 +150,7 @@ class App extends React.Component {
                 description={this.state.description}
             />
             <ScrollArrow 
-                show={this.state.loadedImages.length}
+                show={this.state.loadedImages && this.state.loadedImages.length}
                 onClick={this.onScrollClick} />
             <Gallery 
                 images={this.state.loadedImages} 
