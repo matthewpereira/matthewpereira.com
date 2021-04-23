@@ -1,7 +1,7 @@
 import React                 from 'react';
-import { 
-    BrowserRouter as Router, 
-    Route 
+import {
+    BrowserRouter as Router,
+    Route
 }                            from "react-router-dom";
 import App                   from '../components/App';
 
@@ -9,11 +9,11 @@ const AppRouter = () => {
     return (
         <Router>
             <div>
-                <Route 
+                <Route
                     path={`/:albumId`}
                     component={App}
                 />
-                <Route 
+                <Route
                     exact
                     path={`/`}
                     component={App}

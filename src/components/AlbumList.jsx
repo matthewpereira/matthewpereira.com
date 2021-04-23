@@ -31,29 +31,29 @@ class AlbumList extends React.Component {
     }
 
     onAlbumListChange = (e) => {
-        window.location = `${window.location.origin}/?${e.target.value}`;	
+        window.location = `${window.location.origin}/?${e.target.value}`;
     }
 
     albumListItems = () => {
         const albums = Object.keys(this.props.allowedAlbums)
             .slice(1,this.props.allowedAlbums.length);
-        
+
         const dropdown = ['Choose an album to view...'].concat(albums);
 
-        return dropdown.map((album, iterator) => 
-            <option 
-                key={iterator} 
+        return dropdown.map((album, iterator) =>
+            <option
+                key={iterator}
                 value={this.props.allowedAlbums[album]}
             >
                 {album}
             </option>
-        );	
+        );
     };
-    
+
     render = () => (
         this.state.showList ?
             <div
-                style={{ 
+                style={{
                     'display': 'flex',
                     'height': '100vh',
                     'width': '100vw',

@@ -15,7 +15,7 @@ const GalleryImage = ({ image, index, type, width, height, captions }) => {
             <Section type="youtube">
                 <div className={styles.sidebar}>
                 </div>
-                <div 
+                <div
                     className={styles.embedContainer}
                 >
                     <iframe
@@ -23,8 +23,8 @@ const GalleryImage = ({ image, index, type, width, height, captions }) => {
                         width="1280"
                         height="720"
                         src={image.description.split(' ').join('')}
-                        frameBorder="0" 
-                        data-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        frameBorder="0"
+                        data-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     />
                 </div>

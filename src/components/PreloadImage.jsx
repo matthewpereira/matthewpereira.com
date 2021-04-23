@@ -7,8 +7,8 @@ const PreloadImage = ({ image }) => (
         key={image.id}
         src={image.link}
         style={{
-            height: 1, 
-            width: 1, 
+            height: 1,
+            width: 1,
             opacity: 0.1,
             position: 'absolute',
             left: -1,
