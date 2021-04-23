@@ -8,7 +8,7 @@ import PreloadImage   from './PreloadImage';
 
 import styles         from './Gallery.module.scss';
 
-const IMAGES_PER_PAGE = 50;  
+const IMAGES_PER_PAGE = 50;
 
 const sliceToIndex = (images, index) => images.slice(index, index + 1);
 
@@ -16,7 +16,7 @@ const Gallery = ({ images, captions, location }) => {
     if (!images || !images.length) {
         return null;
     }
-  
+
     const hash = location.hash.replace(/#/, '');
     const pageNumber = hash.length && hash > 0 ? hash : 1;
 
@@ -28,13 +28,13 @@ const Gallery = ({ images, captions, location }) => {
         const start = 0 + pageNumber * IMAGES_PER_PAGE - IMAGES_PER_PAGE;
 
         currentImages = images.slice(start, start + IMAGES_PER_PAGE);
-        
+
         const laterImagesToPreload = (images.length > start + IMAGES_PER_PAGE);
         const earlierImagesToPreload = (start !== 0);
 
         if (laterImagesToPreload) {
             preloadImages.push(...[
-                sliceToIndex(images, start + IMAGES_PER_PAGE)[0], 
+                sliceToIndex(images, start + IMAGES_PER_PAGE)[0],
             ]);
         }
 
@@ -46,10 +46,10 @@ const Gallery = ({ images, captions, location }) => {
     }
 
     const pageCount = Math.ceil(images.length / IMAGES_PER_PAGE);
-    
+
     return (
         <div className={styles.gallery} >
-            {currentImages.map((image, index) => 
+            {currentImages.map((image, index) =>
                 <GalleryImage
                     key={index}
                     image={image}
@@ -60,7 +60,7 @@ const Gallery = ({ images, captions, location }) => {
                     captions={captions}
                 />
             )}
-            {preloadImages ? 
+            {preloadImages ?
                 preloadImages.map((image, index) => <PreloadImage key={index} image={image} />) :
                 null
             }

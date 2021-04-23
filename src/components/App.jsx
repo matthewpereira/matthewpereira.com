@@ -43,12 +43,12 @@ class App extends React.Component {
 
     componentWillMount() {
         document.getElementById('app').classList.remove("app__loading");
-        
+
         // Backwards compatibility for ?something paths
         const albumCode = Object.keys(this.props.match.params).length ?
             this.props.match.params.albumId :
             this.props.location.search.slice(1);
-        
+
         if (!this.validateAlbum(albumCode)) {
             this.props.history.push('/');
 
@@ -57,13 +57,13 @@ class App extends React.Component {
 
         this.fetchImagesFromImgur(albumCode);
     }
-    
+
     validateAlbum = albumId => Object.values(allowedAlbums).indexOf(albumId) > -1;
 
     styleCaptions = albumId => albumId !== DEFAULTGALLERY ? 'bottom' : 'right';
 
-    formatTitle = title => title && title !== 'Matthew Pereira' ? 
-		`${title} - Matthew Pereira` : 
+    formatTitle = title => title && title !== 'Matthew Pereira' ?
+		`${title} - Matthew Pereira` :
 		'Matthew Pereira';
 
 
@@ -71,11 +71,11 @@ class App extends React.Component {
             const captions = this.styleCaptions(albumId);
             const loadedImages = data.data.images;
             const description = data.data.description || '';
-	
-	    document.title = this.formatTitle(data.data.title);    
-	    
+
+	    document.title = this.formatTitle(data.data.title);
+
         const albumName = data.data.title || 'Matthew Pereira';
-        
+
         this.setState({
 	        loadedImages,
 	        albumName,
@@ -85,7 +85,7 @@ class App extends React.Component {
 	}
 
     fetchImagesFromImgur(albumId) {
-        const details = { 
+        const details = {
             headers: {
                 'Authorization': IMGUR_AUTHORIZATION
             }
@@ -116,31 +116,31 @@ class App extends React.Component {
     render = () => this.state.aboutVisible ? (
         <div>
             <div className={styles.sidebar}>
-                <SidebarButton 
+                <SidebarButton
                     hyperlink={this.state.email}
                     label="EMAIL"
-                    target="_blank" 
+                    target="_blank"
                 />
-                <SidebarButton 
+                <SidebarButton
                     onClick={this.handleAboutClick}
                     label="PHOTOGRAPHY"
                 />
             </div>
-            <AboutPage 
+            <AboutPage
                 handleClick={this.handleAboutClick}
-                visible={this.state.aboutVisible} 
+                visible={this.state.aboutVisible}
             />
         </div>
         ) : (
         <div>
             <AlbumList allowedAlbums={allowedAlbums} />
             <div className={styles.sidebar}>
-                <SidebarButton 
+                <SidebarButton
                     hyperlink={this.state.email}
                     label="EMAIL"
-                    target="_blank" 
+                    target="_blank"
                 />
-                <SidebarButton 
+                <SidebarButton
                     onClick={this.handleAboutClick}
                     label="ABOUT"
                 />
@@ -149,12 +149,12 @@ class App extends React.Component {
                 title={this.state.albumName}
                 description={this.state.description}
             />
-            <ScrollArrow 
+            <ScrollArrow
                 show={this.state.loadedImages && this.state.loadedImages.length}
                 onClick={this.onScrollClick} />
-            <Gallery 
-                images={this.state.loadedImages} 
-                captions={this.state.captions} 
+            <Gallery
+                images={this.state.loadedImages}
+                captions={this.state.captions}
             />
         </div>
     );

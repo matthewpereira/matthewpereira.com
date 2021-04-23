@@ -41,7 +41,7 @@ const PageNumber = ({ currentPage, pageNumber, pathName }) => {
         <div className={styles.gallery__pageNumber}>
             <Link to={`${pathName}#${pageNumber}`}>{pageNumber}</Link>
         </div>
-    ) 
+    )
 }
 
 const Pagination = ({ currentPage, pageCount, location }) => {
@@ -50,30 +50,30 @@ const Pagination = ({ currentPage, pageCount, location }) => {
     }
 
     let pageNumbers = [];
-  
+
     for (let i = 0; i < pageCount; i++) {
         pageNumbers.push(i + 1);
     }
 
     return (
         <div className={styles.gallery__pagination}>
-            <PrevButton 
-                currentPage={parseInt(currentPage)} 
-                pageCount={parseInt(pageCount)} 
+            <PrevButton
+                currentPage={parseInt(currentPage)}
+                pageCount={parseInt(pageCount)}
                 pathName={location.search}
             />
             {pageNumbers.map(pageNumber =>
                 <PageNumber
                     key={pageNumber}
                     pageNumber={pageNumber}
-                    currentPage={currentPage} 
-                    pageCount={pageCount} 
+                    currentPage={currentPage}
+                    pageCount={pageCount}
                     pathName={location.search}
                 />
             )}
-            <NextButton 
-                currentPage={currentPage} 
-                pageCount={pageCount} 
+            <NextButton
+                currentPage={currentPage}
+                pageCount={pageCount}
                 pathName={location.search}
             />
         </div>
