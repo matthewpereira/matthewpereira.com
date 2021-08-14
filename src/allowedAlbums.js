@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     //
+    "Shelbie, Ryan, Holly, and Friends": 'k8zCJWo',
     "Bruce Trail - Family Day": 'fBTCeKF',
     "Mono Cliffs Park": 'wTrxgrE',
     "Lake Superior 2020": 'exzH2Zt',
