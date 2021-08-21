@@ -2,6 +2,7 @@ const allowedAlbums = {
     "base gallery": '6Hpyr',
     // 2021
     "Shelbie, Ryan, Holly, and Friends": 'k8zCJWo',
+    "Scouting Halifax August 2021": 'MLKSUlc',
     "Bruce Trail - Family Day": 'fBTCeKF',
     // 2020
     "Mono Cliffs Park": 'wTrxgrE',
