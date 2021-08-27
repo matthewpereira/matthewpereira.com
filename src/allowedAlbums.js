@@ -29,6 +29,7 @@ const allowedAlbums = {
     "Pivotal Beach Day 2019": '5Fm0PDU',
     "Pivotal Island 2019": '0877UpO',
     "Canada Day 2019": 'Q7Q6wUd',
+    "Montreal w Shelbie and Ryan": 'HiGJTLG',
     "Desjardins Montreal": 'BZufJMj',
     "San Francisco 2019": '9arTNBF',
     "CF Summit Philadelphia 2019": 'kCTI9nN',
