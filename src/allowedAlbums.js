@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     // 2021
+    "Algonquin Camping 2021": 'xy0BP18',
     "Shelbie, Ryan, Holly, and Friends": 'k8zCJWo',
     "Scouting Halifax August 2021": 'MLKSUlc',
     "Bruce Trail - Family Day": 'fBTCeKF',
