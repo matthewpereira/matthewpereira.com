@@ -1,7 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     // 2021
-    "Weekend at Phil and Nikki's": 2VyHuWv',
+    "Weekend at Phil and Nikki's": '2VyHuWv',
     "Algonquin Camping 2021": 'xy0BP18',
     "Shelbie, Ryan, Holly, and Friends": 'k8zCJWo',
     "Scouting Halifax August 2021": 'MLKSUlc',
