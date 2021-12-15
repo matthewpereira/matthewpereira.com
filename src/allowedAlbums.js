@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     // 2021
+    "James and Krishna": 'g0gQ2NO',
     "Weekend at Phil and Nikki's": '2VyHuWv',
     "Algonquin Camping 2021": 'xy0BP18',
     "Shelbie, Ryan, Holly, and Friends": 'k8zCJWo',
@@ -35,6 +36,7 @@ const allowedAlbums = {
     "Desjardins Montreal": 'BZufJMj',
     "San Francisco 2019": '9arTNBF',
     "CF Summit Philadelphia 2019": 'kCTI9nN',
+    "Pivotal at Archer's Arena": 'NeS70DP',
     "Jordyn's 9th Birthday 2019": '0ve7Az0',
     // 2018
     "Pereira Christmas 2018": 'IhQzB2T',
