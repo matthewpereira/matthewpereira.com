@@ -1,5 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
+    // 2022
+    "Lily Turns Two": '9fmi2GI',
     // 2021
     "James and Krishna": 'g0gQ2NO',
     "Weekend at Phil and Nikki's": '2VyHuWv',
