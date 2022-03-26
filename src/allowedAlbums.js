@@ -197,7 +197,7 @@ const allowedAlbums = {
     "Jessica and Alex's Wedding": 'vofedle',
     "Thanksgiving 2010": 'c5aAU4I',
     "Samson and Delilah Katz": 'toCaXNl',
-    "Grandma's 85th Birthday": 'aNfhEgq',
+    "Grandma's 85th Birthday 2": 'aNfhEgq',
     "Grandma's Birthday 2010": 'NWKKlFE',
     "Cottage September 3 2010": '4XgFGlh',
     "Dad's Birthday September 2010": 'mU0plaL',
