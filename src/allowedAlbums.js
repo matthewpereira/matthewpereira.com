@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     // 2022
+    "Dartmouth Cherry Blossoms": '20eRlF2',
     "Lily Turns Two": '9fmi2GI',
     // 2021
     "James and Krishna": 'g0gQ2NO',
