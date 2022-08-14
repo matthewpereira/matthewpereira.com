@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     // 2022
+    "Peggy's Cove": 'tGpBKEp',
     "Dartmouth Cherry Blossoms": '20eRlF2',
     "Lily Turns Two": '9fmi2GI',
     // 2021
