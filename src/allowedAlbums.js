@@ -1,8 +1,10 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     // 2022
+    "Halloween 2022": 'IDhZbAb',
     "Mark McCabe visits Halifax": 'aT31Iye',
-    "Peggy's Cove": 'tGpBKEp',
+    "Kanata Day 2022 in Halifax": 'gFI8IPz',
+    "Peggy's Cove and Robin's trip to Halifax": 'tGpBKEp',
     "Dartmouth Cherry Blossoms": '20eRlF2',
     "Lily Turns Two": '9fmi2GI',
     // 2021
