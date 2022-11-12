@@ -1,6 +1,7 @@
 const allowedAlbums = {
     "base gallery": '6Hpyr',
     // 2022
+    "Sailing and Hot Pot": 'JFfL22Y',
     "Halloween 2022": 'IDhZbAb',
     "Mark McCabe visits Halifax": 'aT31Iye',
     "Kanata Day 2022 in Halifax": 'gFI8IPz',
