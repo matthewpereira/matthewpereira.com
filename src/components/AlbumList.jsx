@@ -1,28 +1,42 @@
-import React            from 'react';
+import React, { useState } from 'react';
+import DatalistInput from 'react-datalist-input';
+import 'react-datalist-input/dist/styles.css';
 
-class AlbumList extends React.Component {
-    constructor(props){
-        super(props);
+const AlbumListItems = ({ allowedAlbums, filter }) => {
+      const albums = Object.keys(allowedAlbums)
+          .slice(1,allowedAlbums.length);
 
-        this.state = { showList: false };
+      const filteredAlbums = albums.filter(i => i.toLowerCase().indexOf(filter.toLowerCase()) > -1);
 
-        const konamiHandler = this.konami(() => {
-            this.setState({
-                showList: true
-            })
-        });
+      return filteredAlbums.map((album, iterator) =>
+          <option               
+              key={iterator}
+              value={allowedAlbums[album]}
+              style={{
+                  'border': '0',
+                  'width': '100%',
+                  'height': '32px',
+                  'borderRadius': '4px',
+                  'marginBottom': '4px',
+              }}
+          >
+              {album}
+          </option>
+      );
+};
 
-        window.addEventListener('keydown', konamiHandler);
-    }
-
-    konami(callback) {
+const AlbumList = ({ allowedAlbums }) => {
+    const [ albumListVisible, setAlbumListVisible ] = useState(false);    
+    const [ filter, setFilter ] = useState("");
+    
+    const konami = (callback) => {
         let kkeys = [];
 
         const konami = '38,38,40,40,37,39,37,39,66,65';
 
         return event => {
             kkeys.push(event.keyCode);
-
+            
             if (kkeys.toString().indexOf(konami) >= 0) {
                 callback();
                 kkeys = [];
@@ -30,28 +44,25 @@ class AlbumList extends React.Component {
         };
     }
 
-    onAlbumListChange = (e) => {
-        window.location = `${window.location.origin}/?${e.target.value}`;
+    window.addEventListener('keyup', konami(() => { 
+        setAlbumListVisible(true);
+    }));
+
+    const onFilterChange = (e) => {
+        setFilter(e.target.value);
+        if (e.keyCode == 13) {
+              e.preventDefault();
+              if (e.value.length != 0) {
+                  console.log(e.value);
+                  // Run my specific process with my_field.value 
+                  window.location = `${window.location.origin}/?${allowedAlbums[e.target.value]}`
+                  // e.value = '';
+              }
+          }
     }
 
-    albumListItems = () => {
-        const albums = Object.keys(this.props.allowedAlbums)
-            .slice(1,this.props.allowedAlbums.length);
-
-        const dropdown = ['Choose an album to view...'].concat(albums);
-
-        return dropdown.map((album, iterator) =>
-            <option
-                key={iterator}
-                value={this.props.allowedAlbums[album]}
-            >
-                {album}
-            </option>
-        );
-    };
-
-    render = () => (
-        this.state.showList ?
+    return (
+        albumListVisible ?
             <div
                 style={{
                     'display': 'flex',
@@ -62,15 +73,52 @@ class AlbumList extends React.Component {
                     'position': 'fixed',
                     'zIndex': '1000',
                     'background': 'rgba(255,255,255,0.75)',
+                    'flexDirection': 'column',
                 }}
             >
-                <select onChange={this.onAlbumListChange}>
-                    {this.albumListItems()}
-                </select>
+                <div style={{
+                    'display':'flex',
+                    'alignItems': 'center',
+                    'justifyContent':'center',
+                    'flexDirection': 'column',
+                    'maxWidth': '600px',
+                    'width':'90%',
+                }}>
+                    <DatalistInput
+                        placeholder="Chocolate"
+                        label="Select ice cream flavor"
+                        onSelect={(item) => console.log(item.value)}
+                        items={allowedAlbums}
+                    />
+                    <input 
+                        role="combobox"
+                        style={{
+                            'width':'100%',
+                            'padding': '12px',
+                        }}
+                        onChange={onFilterChange}
+                        placeholder="Type to filter..."
+                        list="albums"
+                        autoFocus
+                    ></input>
+                    <datalist
+                        id="albums" 
+                        style={{
+                            'paddingTop': '4px',
+                            'width': '100%',
+                            'height': '50vh',
+                            'maxHeight': '640px',
+                            'overflow': 'auto',
+                            'background': 'white',
+                        }}
+                    >
+                        <AlbumListItems allowedAlbums={allowedAlbums} filter={filter} />
+                    </datalist>
+                </div>
             </div>
             : null
     );
+
 }
 
 export default AlbumList;
-
