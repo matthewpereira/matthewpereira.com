@@ -12,6 +12,8 @@ const HomeWrapper = (props) => {
     return (
         <div>
             <AlbumList />
+            <LoginButton /><LogoutButton />
+            <Profile />
             <div className={styles.sidebar}>
                 <SidebarButton
                     hyperlink="mailto:mail@matthewpereira.com"
