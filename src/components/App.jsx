@@ -1,162 +1,78 @@
-import React               from 'react';
-import { withRouter }      from 'react-router';
+import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router';
 
-import AboutPage           from './AboutPage.jsx';
-import AlbumList           from './AlbumList.jsx';
-import SidebarButton       from './SidebarButton.jsx';
-import Gallery             from './Gallery.jsx';
-import Intro               from './Intro.jsx';
-import ScrollArrow         from './ScrollArrow.jsx';
+import HomeWrapper from '../views/HomeWrapper.jsx';
+import AboutWrapper from '../views/AboutWrapper.jsx';
 
-import allowedAlbums       from '../allowedAlbums.js';
-
-import IMGUR_AUTHORIZATION from '../env';
-
-import styles from './App.module.scss';
+import getGalleryImages from './getGalleryImages.jsx';
+import validateAlbum from '../helpers/validateAlbum.js';
 
 const DEFAULTGALLERY = '6Hpyr';
 
-const IN_CASE_OF_ERROR = {
-	"data": {
-		"id": "6Hpyr",
-		"images": [],
-	}
-}
+const formatTitle = title => title && title !== 'Matthew Pereira' ?
+    `${title} - Matthew Pereira` :
+    'Matthew Pereira';
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: 'mailto:mail@matthewpereira.com',
-            albumName: '',
-            description: '',
-            loadedImages: [],
-            captions: false,
-            aboutVisible: false
-        };
+const App = (props) => {
+    document.getElementById('app').classList.remove("app__loading");
 
-        this.onScrollClick        = this.onScrollClick.bind(this);
-        this.fetchImagesFromImgur = this.fetchImagesFromImgur.bind(this);
-        this.validateAlbum        = this.validateAlbum.bind(this);
-        this.handleAboutClick     = this.handleAboutClick.bind(this);
-    }
+    const [galleryObject, setGalleryObject] = useState({});
+    const [aboutVisible, setAboutVisible] = useState(false);
 
-    componentWillMount() {
-        document.getElementById('app').classList.remove("app__loading");
+    useEffect(() => {
 
-        // Backwards compatibility for ?something paths
-        const albumCode = Object.keys(this.props.match.params).length ?
-            this.props.match.params.albumId :
-            this.props.location.search.slice(1);
+        let counter = 0;
 
-        if (!this.validateAlbum(albumCode)) {
-            this.props.history.push('/');
+        async function getGalleryObject(props) {
+            // Backwards compatibility for ?something paths
+            const albumCode = Object.keys(props.match.params).length ?
+                props.match.params.albumId :
+                props.location.search.slice(1);
 
-            return this.fetchImagesFromImgur(DEFAULTGALLERY);
-        }
+            if (counter === 0) {
+                counter = 1;
 
-        this.fetchImagesFromImgur(albumCode);
-    }
+                if (!validateAlbum(albumCode) || albumCode === DEFAULTGALLERY) {
+                    props.history.push('/');
 
-    validateAlbum = albumId => Object.values(allowedAlbums).indexOf(albumId) > -1;
+                    return setGalleryObject(await getGalleryImages(DEFAULTGALLERY));
+                }
 
-    styleCaptions = albumId => albumId !== DEFAULTGALLERY ? 'bottom' : 'right';
-
-    formatTitle = title => title && title !== 'Matthew Pereira' ?
-		`${title} - Matthew Pereira` :
-		'Matthew Pereira';
-
-
-    hydrateGalleryState = (data, albumId) => {
-            const captions = this.styleCaptions(albumId);
-            const loadedImages = data.data.images;
-            const description = data.data.description || '';
-
-	    document.title = this.formatTitle(data.data.title);
-
-        const albumName = data.data.title || 'Matthew Pereira';
-
-        this.setState({
-	        loadedImages,
-	        albumName,
-	        description,
-	        captions
-	    });
-	}
-
-    fetchImagesFromImgur(albumId) {
-        const details = {
-            headers: {
-                'Authorization': IMGUR_AUTHORIZATION
+                return setGalleryObject(await getGalleryImages(albumCode));
             }
+
         }
 
-        fetch(`https://api.imgur.com/3/album/${albumId}`, details)
-            .then(data => data.json())
-            .then(data => this.hydrateGalleryState(data, albumId))
-            .catch(error => {
-                console.error("Abort, abort!", error);
-                this.hydrateGalleryState(IN_CASE_OF_ERROR, albumId);
-            });
-    }
+        setGalleryObject(getGalleryObject(props).then(data => data));
 
-    onScrollClick = () => {
+    }, [])
+
+    const onScrollClick = (event, direction = 'forward') => {
         const height = window.innerHeight;
-        const scrollTop = height - 35;
+        const scrollTop = (direction === 'forward') ? height + 35 : - height + 35;
 
         document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
     };
 
-    handleAboutClick = () => {
-        this.setState({
-            aboutVisible: !this.state.aboutVisible
-        });
+    const handleAboutClick = () => {
+        setAboutVisible(!aboutVisible);
     }
 
-    render = () => this.state.aboutVisible ? (
-        <div>
-            <div className={styles.sidebar}>
-                <SidebarButton
-                    hyperlink={this.state.email}
-                    label="EMAIL"
-                    target="_blank"
-                />
-                <SidebarButton
-                    onClick={this.handleAboutClick}
-                    label="PHOTOGRAPHY"
-                />
-            </div>
-            <AboutPage
-                handleClick={this.handleAboutClick}
-                visible={this.state.aboutVisible}
+    if (aboutVisible) {
+        return (
+            <AboutWrapper
+                aboutVisible
+                handleAboutClick={handleAboutClick}
             />
-        </div>
-        ) : (
-        <div>
-            <AlbumList allowedAlbums={allowedAlbums} />
-            <div className={styles.sidebar}>
-                <SidebarButton
-                    hyperlink={this.state.email}
-                    label="EMAIL"
-                    target="_blank"
-                />
-                <SidebarButton
-                    onClick={this.handleAboutClick}
-                    label="ABOUT"
-                />
-            </div>
-            <Intro
-                title={this.state.albumName}
-                description={this.state.description}
-            />
-            <ScrollArrow
-                show={this.state.loadedImages && this.state.loadedImages.length}
-                onClick={this.onScrollClick} />
-            <Gallery
-                images={this.state.loadedImages}
-                captions={this.state.captions}
-            />
-        </div>
+        );
+    }
+
+    return (
+        <HomeWrapper
+            galleryObject={galleryObject}
+            onScrollClick={onScrollClick}
+            handleAboutClick={handleAboutClick}
+        />
     );
 }
 

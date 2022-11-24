@@ -1,4 +1,5 @@
-import React            from 'react';
+import React         from 'react';
+import allowedAlbums from '../allowedAlbums.js';
 
 class AlbumList extends React.Component {
     constructor(props){
@@ -35,15 +36,15 @@ class AlbumList extends React.Component {
     }
 
     albumListItems = () => {
-        const albums = Object.keys(this.props.allowedAlbums)
-            .slice(1,this.props.allowedAlbums.length);
+        const albums = Object.keys(allowedAlbums)
+            .slice(1,allowedAlbums.length);
 
         const dropdown = ['Choose an album to view...'].concat(albums);
 
         return dropdown.map((album, iterator) =>
             <option
                 key={iterator}
-                value={this.props.allowedAlbums[album]}
+                value={allowedAlbums[album]}
             >
                 {album}
             </option>
