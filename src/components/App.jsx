@@ -1,5 +1,6 @@
 import React               from 'react';
 import { withRouter }      from 'react-router';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import AboutPage           from './AboutPage.jsx';
 import AlbumList           from './AlbumList.jsx';
@@ -7,6 +8,9 @@ import SidebarButton       from './SidebarButton.jsx';
 import Gallery             from './Gallery.jsx';
 import Intro               from './Intro.jsx';
 import ScrollArrow         from './ScrollArrow.jsx';
+import LoginButton         from './LoginButton.jsx';
+import LogoutButton        from './LogoutButton.jsx';
+import Profile             from './Profile.jsx';
 
 import allowedAlbums       from '../allowedAlbums.js';
 
@@ -39,6 +43,10 @@ class App extends React.Component {
         this.fetchImagesFromImgur = this.fetchImagesFromImgur.bind(this);
         this.validateAlbum        = this.validateAlbum.bind(this);
         this.handleAboutClick     = this.handleAboutClick.bind(this);
+
+        const { user, isAuthenticated, isLoading } = useAuth0();
+
+        console.log(user, isAuthenticated, isLoading);
     }
 
     componentWillMount() {
@@ -145,6 +153,8 @@ class App extends React.Component {
                     label="ABOUT"
                 />
             </div>
+            <LoginButton /><LogoutButton />
+            <Profile />
             <Intro
                 title={this.state.albumName}
                 description={this.state.description}
