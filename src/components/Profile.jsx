@@ -2,15 +2,16 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const auth0Object = useAuth0();
 
-  console.log(isLoading);
+  console.log(auth0Object);
 
-  if (isLoading) {
+  const { user, isAuthenticated, isLoading } = auth0Object;
+
+  
+  if (isLoading && !isAuthenticated) {
     return <div>Loading ...</div>;
   }
-
-  console.log(user, isAuthenticated, isLoading);
 
   return (
     isAuthenticated && (
