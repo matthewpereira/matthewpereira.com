@@ -1,26 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { withRouter } from 'react-router';
-
-import HomeWrapper from '../views/HomeWrapper.jsx';
-import AboutWrapper from '../views/AboutWrapper.jsx';
-
-import getGalleryImages from './getGalleryImages.jsx';
-import validateAlbum from '../helpers/validateAlbum.js';
+import React, 
+       { useEffect, useState } from 'react';
+import { withRouter }          from 'react-router';
+import { useAuth0 }            from '@auth0/auth0-react';
+import HomeWrapper             from '../views/HomeWrapper.jsx';
+import AboutWrapper            from '../views/AboutWrapper.jsx';
+import validateAlbum           from '../helpers/validateAlbum.js';
+import getGalleryImages        from './getGalleryImages.jsx';
 
 const DEFAULTGALLERY = '6Hpyr';
 
-const formatTitle = title => title && title !== 'Matthew Pereira' ?
-    `${title} - Matthew Pereira` :
-    'Matthew Pereira';
+const onScrollClick = (event, direction = 'forward') => {
+    const height = window.innerHeight;
+    const scrollTop = (direction === 'forward') ? height + 35 : - height + 35;
+
+    document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
+};
 
 const App = (props) => {
     document.getElementById('app').classList.remove("app__loading");
 
     const [galleryObject, setGalleryObject] = useState({});
-    const [aboutVisible, setAboutVisible] = useState(false);
+    const [aboutVisible, setAboutVisible]   = useState(false);
 
     useEffect(() => {
-
         let counter = 0;
 
         async function getGalleryObject(props) {
@@ -29,30 +31,25 @@ const App = (props) => {
                 props.match.params.albumId :
                 props.location.search.slice(1);
 
-            if (counter === 0) {
-                counter = 1;
-
-                if (!validateAlbum(albumCode) || albumCode === DEFAULTGALLERY) {
-                    props.history.push('/');
-
-                    return setGalleryObject(await getGalleryImages(DEFAULTGALLERY));
-                }
-
-                return setGalleryObject(await getGalleryImages(albumCode));
+            if (counter === 1) {
+                return;
             }
 
+            counter = 1;
+
+            if (!validateAlbum(albumCode) || albumCode === DEFAULTGALLERY) {
+                props.history.push('/');
+
+                return setGalleryObject(await getGalleryImages(DEFAULTGALLERY));
+            }
+
+            return setGalleryObject(await getGalleryImages(albumCode));
         }
 
-        setGalleryObject(getGalleryObject(props).then(data => data));
+        setGalleryObject(getGalleryObject(props));
 
-    }, [])
-
-    const onScrollClick = (event, direction = 'forward') => {
-        const height = window.innerHeight;
-        const scrollTop = (direction === 'forward') ? height + 35 : - height + 35;
-
-        document.body.scrollTop = document.documentElement.scrollTop = scrollTop;
-    };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleAboutClick = () => {
         setAboutVisible(!aboutVisible);
