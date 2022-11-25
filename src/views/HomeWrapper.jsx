@@ -17,7 +17,6 @@ const HomeWrapper = (props) => {
             <AlbumList />
             <div>
                 <LoginButton />
-                <LogoutButton />
                 <Profile />
             </div>
             <div className={styles.sidebar}>

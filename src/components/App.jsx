@@ -1,7 +1,6 @@
 import React, 
        { useEffect, useState } from 'react';
 import { withRouter }          from 'react-router';
-import { useAuth0 }            from '@auth0/auth0-react';
 import HomeWrapper             from '../views/HomeWrapper.jsx';
 import AboutWrapper            from '../views/AboutWrapper.jsx';
 import validateAlbum           from '../helpers/validateAlbum.js';

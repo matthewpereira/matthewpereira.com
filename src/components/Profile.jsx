@@ -1,5 +1,7 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from "./LogoutButton";
+import styles       from './Profile.module.scss';
 
 const Profile = () => {
   const auth0Object = useAuth0();
@@ -15,10 +17,11 @@ const Profile = () => {
 
   return (
     isAuthenticated && (
-      <div>
+      <div className={styles.profileWrapper}>
         <img src={user.picture} alt={user.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
+        <p className={styles.username}>{user.name}</p>
+        <p className={styles.email}>{user.email}</p>
+        <LogoutButton />
       </div>
     )
   );
