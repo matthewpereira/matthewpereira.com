@@ -14,7 +14,6 @@ const HomeWrapper = (props) => {
 
     return (
         <div>
-            <AlbumList />
             <div>
                 <LoginButton />
                 <Profile />

@@ -16,12 +16,11 @@
 .profileWrapper .email,
 .profileWrapper .username {
     font-size: 8px;
-    padding: 2px;
+    display: block;
 }
 
 .profileWrapper .email {
     overflow: hidden;
-    padding: 4px 0;
     transition: 0.2s all ease-in-out;
     width: 0px;
 }
@@ -31,13 +30,11 @@
     width: 80px;
 }
 .profileWrapper .username {
-    padding: 4px 0;
     transition: 0.2s all ease-in-out;
     width: 24px;
 }
 .profileWrapper:hover .username {
     overflow: hidden;
-    padding: 4px 0;
     transition: 0.2s all ease-in-out;
     width: 0px;
 }
