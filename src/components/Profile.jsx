@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Profile = () => {
   const auth0Object = useAuth0();
 
-  console.log(auth0Object);
+  // console.log(auth0Object);
 
   const { user, isAuthenticated, isLoading } = auth0Object;
 
