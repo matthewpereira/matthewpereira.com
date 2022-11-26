@@ -37,6 +37,12 @@ a {
     width: 160px;
 
     @include media("<=tablet") {
-       
+       transform: rotateZ(0);
+       position: absolute;
+       top: 4px;
+       left: 4px;
+       display: inline-block;
+       flex-direction: row;
+       width: auto;
     }
 }

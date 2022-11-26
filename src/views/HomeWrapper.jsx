@@ -18,13 +18,13 @@ const HomeWrapper = (props) => {
             </div>
             <div className={styles.sidebar}>
                 <SidebarButton
+                    onClick={props.handleAboutClick}
+                    label="ABOUT"
+                />
+                <SidebarButton
                     hyperlink="mailto:mail@matthewpereira.com"
                     label="EMAIL"
                     target="_blank"
-                />
-                <SidebarButton
-                    onClick={props.handleAboutClick}
-                    label="ABOUT"
                 />
             </div>
             <Intro
