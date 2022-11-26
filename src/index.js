@@ -27,7 +27,7 @@ const providerConfig = {
 
 ReactDOM.render(
   <Auth0Provider {...providerConfig}>
-    <AppRouter />,
+    <AppRouter />
   </Auth0Provider>,
   document.getElementById("app")
 );
