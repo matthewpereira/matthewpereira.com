@@ -1,8 +1,6 @@
-import AlbumList     from '../components/AlbumList.jsx';
 import Gallery       from '../components/Gallery.jsx';
 import Intro         from '../components/Intro.jsx';
 import LoginButton   from '../components/LoginButton.jsx';
-import LogoutButton  from '../components/LogoutButton.jsx';
 import Profile       from '../components/Profile.jsx';
 import ScrollArrow   from '../components/ScrollArrow.jsx';
 import SidebarButton from '../components/SidebarButton.jsx';
@@ -13,7 +11,7 @@ const HomeWrapper = (props) => {
     const { captions, loadedImages, description, albumName } = props.galleryObject;
 
     return (
-        <div>
+        <div className={styles.pageWrapper}>
             <div>
                 <LoginButton />
                 <Profile />
@@ -37,8 +35,8 @@ const HomeWrapper = (props) => {
                 show={loadedImages && loadedImages.length}
                 onClick={props.onScrollClick} />
             <Gallery
-                images={loadedImages}
                 captions={captions}
+                images={loadedImages}
             />
         </div>
     )

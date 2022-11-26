@@ -1,18 +1,28 @@
-import React          from 'react';
+import React, { useEffect } from 'react';
 import { withRouter } from 'react-router';
 
-import GalleryImage   from './GalleryImage.jsx';
-import Pagination     from './Pagination.jsx';
-import ScrollToTop    from './ScrollToTop';
-import PreloadImage   from './PreloadImage';
-
-import styles         from './Gallery.module.scss';
+import GalleryImage from './GalleryImage.jsx';
+import Pagination from './Pagination.jsx';
+import ScrollToTop from './ScrollToTop';
+import PreloadImage from './PreloadImage';
+import handleScrollKeypress from '../helpers/handleScrollKeypress.js';
+import styles from './Gallery.module.scss';
 
 const IMAGES_PER_PAGE = 50;
 
 const sliceToIndex = (images, index) => images.slice(index, index + 1);
 
 const Gallery = ({ images, captions, location }) => {
+    
+    let eventListenerAdded = false;
+
+    useEffect(() => {
+        if (!eventListenerAdded) {
+            eventListenerAdded = true;
+            document.addEventListener('keydown', handleScrollKeypress);
+        }
+    }, []);
+
     if (!images || !images.length) {
         return null;
     }
@@ -51,13 +61,13 @@ const Gallery = ({ images, captions, location }) => {
         <div className={styles.gallery} >
             {currentImages.map((image, index) =>
                 <GalleryImage
-                    key={index}
+                    captions={captions}
+                    height={image.height}
                     image={image}
                     index={index}
+                    key={index}
                     type={image.type}
                     width={image.width}
-                    height={image.height}
-                    captions={captions}
                 />
             )}
             {preloadImages ?

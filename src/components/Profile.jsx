@@ -10,7 +10,7 @@ const Profile = () => {
   const [albumListVisible, toggleAlbumList] = useState(false);
 
   if (isLoading && !isAuthenticated) {
-    return <div>Loading ...</div>;
+    return <div>...</div>;
   }
   
   const handleAlbumClick = () => toggleAlbumList(!albumListVisible);
