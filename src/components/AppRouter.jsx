@@ -20,7 +20,7 @@ const AppRouter = () => {
     <Router>
       <div>
         <Switch>
-          <Route exact path={`/albums`} component={Albums} />
+          <Route exact path={`/albums/`} component={Albums} />
           <Route path={`/:albumId`} component={App} />
           <Route exact path={`/`} component={App} />
         </Switch>

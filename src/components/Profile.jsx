@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
 import AlbumList from "./AlbumList";
 import styles from "./Profile.module.scss";
@@ -13,8 +14,6 @@ const Profile = () => {
     return <div>...</div>;
   }
 
-  const handleAlbumClick = () => (document.location = "/albums");
-
   return (
     isAuthenticated && (
       <div>
@@ -23,7 +22,9 @@ const Profile = () => {
           <img src={user.picture} alt={user.name} />
           <p className={styles.username}>{user.name}</p>
           <p className={styles.email}>{user.email}</p>
-          <button onClick={handleAlbumClick}>Albums</button>
+          <Link className={styles.albums} to={`/albums`}>
+            Albums
+          </Link>
           <LogoutButton />
         </div>
       </div>
