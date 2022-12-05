@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useAuth0 }        from "@auth0/auth0-react";
-import LogoutButton        from "./LogoutButton";
-import AlbumList           from "./AlbumList";
-import styles              from './Profile.module.scss';
+import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from "./LogoutButton";
+import AlbumList from "./AlbumList";
+import styles from "./Profile.module.scss";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -12,8 +12,8 @@ const Profile = () => {
   if (isLoading && !isAuthenticated) {
     return <div>...</div>;
   }
-  
-  const handleAlbumClick = () => toggleAlbumList(!albumListVisible);
+
+  const handleAlbumClick = () => (document.location = "/albums");
 
   return (
     isAuthenticated && (

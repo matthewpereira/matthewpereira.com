@@ -1,0 +1,51 @@
+@import "../scss/media";
+
+.albumList {
+  width: 80vw;
+  margin: 5vw auto;
+
+  @include media("<=tablet") {
+    margin: 10vw auto;
+  }
+}
+.album {
+  width: 38vw;
+  margin: 4vw auto 0;
+  overflow: hidden;
+  height: calc(200px + 24px);
+  display: inline-block;
+  background-size: cover;
+  background-position: center center;
+
+  @include media("<=tablet") {
+    width: 100%;
+    margin: 0 0 6vw 0;
+  }
+}
+.album:nth-of-type(odd) {
+  margin-right: 4vw;
+}
+.album_link {
+  margin: 0;
+  padding: 0;
+  height: 200px;
+}
+.album_imageContainer {
+  height: 200px;
+}
+.album_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+.album_title {
+  position: relative;
+  z-index: 1000;
+  background: #fff;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  padding: 8px;
+  width: calc(100% - 16px);
+}
