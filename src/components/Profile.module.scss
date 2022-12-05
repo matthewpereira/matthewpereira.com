@@ -1,40 +1,49 @@
 .profileWrapper {
-    align-items: center;
-    display: flex;
-    gap: 8px;
-    height: 24px;
-    position: absolute;
-    right: 4px;
-    top: 0px;
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  height: 24px;
+  position: absolute;
+  right: 4px;
+  top: 0px;
 }
 
 .profileWrapper img {
-    height: 12px;
-    width: 12px;
+  height: 12px;
+  width: 12px;
 }
 
 .profileWrapper .email,
-.profileWrapper .username {
-    font-size: 8px;
-    display: block;
+.profileWrapper .username,
+.profileWrapper .albums {
+  font-size: 8px;
+  display: block;
+}
+.profileWrapper .albums {
+  font-size: 8px;
+  color: #000;
+  border: 1px solid #eee;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
 }
 
 .profileWrapper .email {
-    overflow: hidden;
-    transition: 0.2s all ease-in-out;
-    width: 0px;
+  overflow: hidden;
+  transition: 0.2s all ease-in-out;
+  width: 0px;
 }
 
 .profileWrapper:hover .email {
-    transition: 0.2s all ease-in-out;
-    width: 80px;
+  transition: 0.2s all ease-in-out;
+  width: 80px;
 }
 .profileWrapper .username {
-    transition: 0.2s all ease-in-out;
-    width: 24px;
+  transition: 0.2s all ease-in-out;
+  width: 24px;
 }
 .profileWrapper:hover .username {
-    overflow: hidden;
-    transition: 0.2s all ease-in-out;
-    width: 0px;
+  overflow: hidden;
+  transition: 0.2s all ease-in-out;
+  width: 0px;
 }
