@@ -16,7 +16,7 @@ const styleCaptions = (albumId) => {
 const getGalleryImages = async (albumId) => {
   const details = {
     headers: {
-      Authorization: `Client-ID: ${IMGUR_AUTHORIZATION.clientId}`,
+      Authorization: `Client-ID ${IMGUR_AUTHORIZATION.clientId}`,
     },
   };
 
