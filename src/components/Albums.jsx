@@ -1,35 +1,8 @@
 import { useEffect, useState } from "react";
-
-import IMGUR_AUTHORIZATION from "../env";
-import allowedAlbums from "../allowedAlbums";
-
-import styles from "./Albums.module.scss";
 import LazyLoad from "react-lazyload";
-
-const ThumbnailGallery = ({ albumCovers }) => {
-  const thumbnailSize = window.innerWidth > 320 ? "l" : "m";
-
-  return (
-    <div className={styles.albumList}>
-      {albumCovers.map(({ albumId, cover, title }, iterator) => (
-        <div className={styles.album} key={iterator}>
-          <a className={styles.album_link} href={`/?${albumId}`}>
-            <div className={styles.album_imageContainer}>
-              <LazyLoad offset={3000}>
-                <img
-                  className={styles.album_image}
-                  src={`https://i.imgur.com/${cover}${thumbnailSize}.jpg`}
-                  alt={title}
-                />
-              </LazyLoad>
-            </div>
-            <div className={styles.album_title}>{title}</div>
-          </a>
-        </div>
-      ))}
-    </div>
-  );
-};
+import IMGUR_AUTHORIZATION from "../env";
+import ThumbnailGallery from "./ThumbnailGallery";
+import allowedAlbums from "../allowedAlbums";
 
 // Because we have the default gallery in the index 0 spot
 const stripFirstAlbum = (originalObject) =>
@@ -38,7 +11,9 @@ const stripFirstAlbum = (originalObject) =>
   );
 
 const Albums = ({ albumList }) => {
+  
   document.getElementById("app").classList.remove("app__loading");
+  
   const [albumCovers, setAlbumCovers] = useState([]);
 
   useEffect(() => {
@@ -56,25 +31,17 @@ const Albums = ({ albumList }) => {
         });
       })
     )
-      .then((results) => {
-        Promise.all(console.log(results));
-
-        return Promise.all(results.map((r) => r.json()));
-      })
-      .then((responses) =>
-        responses
-          .filter((response) => {
-            return response ? response : null;
-          })
-          .map((response) => {
-            console.log(response);
-
-            return {
-              albumId: response.data.id,
-              cover: response.data.cover,
-              title: response.data.title,
-            };
-          })
+    .then((results) => Promise.all(results.map((r) => r.json()))) // Convert to json
+    .then((responses) =>
+      responses
+        .filter((response) => {
+          return response ? response : null;
+        })
+        .map((response) => ({
+          albumId: response.data.id,
+          cover: response.data.cover,
+          title: response.data.title,
+        }))
       )
       .then((results) => setAlbumCovers(results))
       .catch((error) => {
