@@ -9,10 +9,9 @@ const stripFirstAlbum = (originalObject) =>
     Object.entries(originalObject).slice(1, originalObject.length)
   );
 
-const Albums = ({ albumList }) => {
-  
+const Albums = () => {
   document.getElementById("app").classList.remove("app__loading");
-  
+
   const [albumCovers, setAlbumCovers] = useState([]);
 
   useEffect(() => {
@@ -30,17 +29,15 @@ const Albums = ({ albumList }) => {
         });
       })
     )
-    .then((results) => Promise.all(results.map((r) => r.json()))) // Convert to json
-    .then((responses) =>
-      responses
-        .filter((response) => {
-          return response ? response : null;
-        })
-        .map((response) => ({
-          albumId: response.data.id,
-          cover: response.data.cover,
-          title: response.data.title,
-        }))
+      .then((results) => Promise.all(results.map((r) => r.json())))
+      .then((responses) =>
+        responses
+          .filter((response) => (response ? response : null))
+          .map((response) => ({
+            albumId: response.data.id,
+            cover: response.data.cover,
+            title: response.data.title,
+          }))
       )
       .then((results) => setAlbumCovers(results))
       .catch((error) => {
