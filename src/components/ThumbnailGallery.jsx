@@ -1,3 +1,4 @@
+import LazyLoad from "react-lazyload";
 import styles from "./Albums.module.scss";
 
 const Thumbnail = ({ albumId, cover, title }, iterator) => {

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import LazyLoad from "react-lazyload";
 import IMGUR_AUTHORIZATION from "../env";
 import ThumbnailGallery from "./ThumbnailGallery";
 import allowedAlbums from "../allowedAlbums";
