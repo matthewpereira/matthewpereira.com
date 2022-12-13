@@ -11,7 +11,7 @@ const AlbumList = () => {
         const albums = Object.keys(allowedAlbums)
             .slice(1, allowedAlbums.length);
 
-        const dropdown = ['Choose an album to view...'].concat(albums);
+        const dropdown = ['Click here'].concat(albums);
 
         return dropdown.map((album, iterator) =>
             <option
@@ -26,19 +26,21 @@ const AlbumList = () => {
     return (
         <div
             style={{
-                'display': 'flex',
-                'height': '100vh',
-                'width': '100vw',
                 'alignItems': 'center',
+                'display': 'flex',
+                'flexDirection': 'column',
+                'gap': '48px',
                 'justifyContent': 'center',
-                'position': 'fixed',
+                'margin': '48px auto 0',
+                'width': '100vw',
                 'zIndex': '1000',
-                'background': 'rgba(255,255,255,0.75)',
             }}
         >
+            Select an album
             <select onChange={onAlbumListChange}>
                 {albumListItems()}
             </select>
+            or scroll down:
         </div>
 
     );

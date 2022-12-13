@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import IMGUR_AUTHORIZATION from "../env";
 import ThumbnailGallery from "./ThumbnailGallery";
 import allowedAlbums from "../allowedAlbums";
+import AlbumList from "./AlbumList";
+import { Link } from "react-router-dom";
 
 // Because we have the default gallery in the index 0 spot
 const stripFirstAlbum = (originalObject) =>
@@ -61,6 +63,10 @@ const Albums = () => {
 
   return (
     <div>
+      <Link>
+        Cancel
+      </Link>
+      <AlbumList />
       <ThumbnailGallery albumCovers={albumCovers} />
     </div>
   );
