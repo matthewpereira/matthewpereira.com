@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import IMGUR_AUTHORIZATION from "../env";
-import ThumbnailGallery from "./ThumbnailGallery";
-import allowedAlbums from "../allowedAlbums";
-import AlbumList from "./AlbumList";
-import { Link } from "react-router-dom";
+import { useHistory }          from "react-router-dom";
+
+import ThumbnailGallery        from "./ThumbnailGallery";
+import AlbumList               from "./AlbumList";
+
+import allowedAlbums           from "../allowedAlbums";
+import IMGUR_AUTHORIZATION     from "../env";
 
 // Because we have the default gallery in the index 0 spot
 const stripFirstAlbum = (originalObject) =>
@@ -61,11 +63,19 @@ const Albums = () => {
       });
   };
 
+  const history = useHistory();
+
+  const cancelStyle = {
+    position: 'fixed',
+    top: '4px', 
+    right: '4px'
+  }
+
   return (
     <div>
-      <Link>
+      <button style={cancelStyle} onClick={() => history.goBack()}>
         Cancel
-      </Link>
+      </button>
       <AlbumList />
       <ThumbnailGallery albumCovers={albumCovers} />
     </div>

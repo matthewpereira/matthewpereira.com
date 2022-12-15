@@ -1,5 +1,5 @@
 import LazyLoad from "react-lazyload";
-import styles from "./Albums.module.scss";
+import styles   from "./Albums.module.scss";
 
 const Thumbnail = ({ album: { albumId, cover, title } }) => {
   // imgur uses s / m / l / h to return different sized images
@@ -26,8 +26,8 @@ const Thumbnail = ({ album: { albumId, cover, title } }) => {
 
 const ThumbnailGallery = ({ albumCovers }) => (
   <div className={styles.albumList}>
-    {albumCovers.map((album) => (
-      <Thumbnail album={album} />
+    {albumCovers.map((album, iterator) => (
+      <Thumbnail album={album} key={iterator} />
     ))}
   </div>
 );
