@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { withRouter } from 'react-router';
+import { withRouter }       from 'react-router';
 
-import GalleryImage from './GalleryImage.jsx';
-import Pagination from './Pagination.jsx';
-import ScrollToTop from './ScrollToTop';
-import PreloadImage from './PreloadImage';
+import GalleryImage         from './GalleryImage.jsx';
+import Pagination           from './Pagination.jsx';
+import ScrollToTop          from './ScrollToTop';
+import PreloadImage         from './PreloadImage';
 import handleScrollKeypress from '../helpers/handleScrollKeypress.js';
-import styles from './Gallery.module.scss';
+import styles               from './Gallery.module.scss';
 
 const IMAGES_PER_PAGE = 50;
 

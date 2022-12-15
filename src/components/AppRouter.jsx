@@ -1,9 +1,9 @@
-import React from "react";
+import React                                      from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 }                               from "@auth0/auth0-react";
 
-import Albums from "./Albums";
-import App from "./App";
+import Albums                                     from "./Albums";
+import App                                        from "./App";
 
 const AppRouter = () => {
   const { isLoading, error } = useAuth0();

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router";
-import HomeWrapper from "../views/HomeWrapper.jsx";
-import AboutWrapper from "../views/AboutWrapper.jsx";
-import validateAlbum from "../helpers/validateAlbum.js";
-import getGalleryImages from "./getGalleryImages.jsx";
+import { withRouter }                 from "react-router";
+import HomeWrapper                    from "../views/HomeWrapper.jsx";
+import AboutWrapper                   from "../views/AboutWrapper.jsx";
+import validateAlbum                  from "../helpers/validateAlbum.js";
+import getGalleryImages               from "./getGalleryImages.jsx";
 
 const DEFAULTGALLERY = "6Hpyr";
 

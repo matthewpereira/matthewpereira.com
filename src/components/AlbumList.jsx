@@ -1,4 +1,4 @@
-import React from 'react';
+import React         from 'react';
 import allowedAlbums from '../allowedAlbums.js';
 
 const AlbumList = () => {
