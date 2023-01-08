@@ -28,22 +28,3 @@
   font-weight: 600;
 }
 
-.profileWrapper .email {
-  overflow: hidden;
-  transition: 0.2s all ease-in-out;
-  width: 0px;
-}
-
-.profileWrapper:hover .email {
-  transition: 0.2s all ease-in-out;
-  width: 80px;
-}
-.profileWrapper .username {
-  transition: 0.2s all ease-in-out;
-  width: 24px;
-}
-.profileWrapper:hover .username {
-  overflow: hidden;
-  transition: 0.2s all ease-in-out;
-  width: 0px;
-}

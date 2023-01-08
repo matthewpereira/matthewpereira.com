@@ -23,30 +23,48 @@ const Albums = () => {
   }, []);
 
   const getAlbumCovers = async (allowedAlbums) => {
-    // Make a GET request to the Imgur API's Album endpoint for each album ID
-    await Promise.all(
-      Object.values(allowedAlbums).map((album) => {
-        return fetch(`https://api.imgur.com/3/album/${album}`, {
-          headers: {
-            Authorization: `Client-ID ${IMGUR_AUTHORIZATION.clientId}`,
-          },
-        });
-      })
-    )
-      .then((results) => Promise.all(results.map((r) => r.json())))
-      .then((responses) =>
+    
+    let remainingAlbums = allowedAlbums;
+    let fetchedAlbums = [];
+
+    const COHORT_SIZE = 32;
+
+    for (let i = 0; i < Object.values(allowedAlbums).length; i) {
+      const albumsToFetch = Object.values(remainingAlbums).slice(0,COHORT_SIZE);
+      
+      remainingAlbums = Object.values(remainingAlbums).slice(COHORT_SIZE, Object.values(remainingAlbums).length);
+      
+      // Increase the counter
+      i = i + COHORT_SIZE;
+      
+      // Make a GET request to the Imgur API's Album endpoint for each album ID
+      await Promise.all(
+        Object.values(albumsToFetch).map((album) => {
+          return fetch(`https://api.imgur.com/3/album/${album}`, {
+            headers: {
+              Authorization: `Client-ID ${IMGUR_AUTHORIZATION.clientId}`,
+            },
+          });
+        })
+        )
+        .then((results) => Promise.all(results.map((r) => r.json())))
+        .then((responses) =>
         responses
-          .filter((response) => (response ? response : null))
-          .map((response) => ({
-            albumId: response.data.id,
-            cover: response.data.cover,
-            title: response.data.title,
-          }))
-      )
-      .then((results) => setAlbumCovers(results))
-      .catch((error) => {
-        if (typeof error.json === "function") {
-          error
+        .filter((response) => (response ? response : null))
+        .map((response) => ({
+          albumId: response.data.id,
+          cover: response.data.cover,
+          title: response.data.title,
+        }))
+        )
+        .then((results) => {
+          fetchedAlbums = fetchedAlbums.concat(results);
+
+          setAlbumCovers(fetchedAlbums);
+        })
+        .catch((error) => {
+          if (typeof error.json === "function") {
+            error
             .json()
             .then((jsonError) => {
               console.log("Json error from API");
@@ -56,15 +74,16 @@ const Albums = () => {
               console.log("Generic error from API");
               console.log(error.statusText);
             });
-        } else {
-          console.log("Fetch error");
-          console.log(error);
-        }
-      });
-  };
-
-  const history = useHistory();
-
+          } else {
+            console.log("Fetch error");
+            console.log(error);
+          }
+        });
+      };
+    }
+    
+    const history = useHistory();
+    
   const cancelStyle = {
     position: 'fixed',
     top: '4px', 
