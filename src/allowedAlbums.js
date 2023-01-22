@@ -5,6 +5,7 @@ const allowedAlbums = {
   "Halifax Oyster Festival": "oC2t9AZ",
   "Sailing and Hot Pot": "JFfL22Y",
   "Halloween 2022": "IDhZbAb",
+  "Hurricane Fiona": "ThpMbQ5",
   "Mark McCabe visits Halifax": "aT31Iye",
   "Kanata Day 2022 in Halifax": "gFI8IPz",
   "Peggy's Cove and Robin's trip to Halifax": "tGpBKEp",
