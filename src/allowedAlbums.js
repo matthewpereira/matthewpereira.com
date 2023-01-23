@@ -1,7 +1,6 @@
 const allowedAlbums = {
   "base gallery": "6Hpyr",
   // 2022
-  "Ma Goodbye": "DQVKOAV",
   "High Head Trail in Prospect, NS": "8Mu0Nv2",
   "Halifax Oyster Festival": "oC2t9AZ",
   "Sailing and Hot Pot": "JFfL22Y",
@@ -12,6 +11,7 @@ const allowedAlbums = {
   "Peggy's Cove and Robin's trip to Halifax": "tGpBKEp",
   "Dartmouth Cherry Blossoms": "20eRlF2",
   "Moving to Halifax": "OxhevKZ",
+  "Ma Goodbye": "DQVKOAV",
   "Lily Turns Two": "9fmi2GI",
   // 2021
   "James and Krishna": "g0gQ2NO",
