@@ -50,6 +50,7 @@ const allowedAlbums = {
   "San Francisco 2019": "9arTNBF",
   "CF Summit Philadelphia 2019": "kCTI9nN",
   "Pivotal at Archer's Arena": "NeS70DP",
+  "Shelbie and Ryan's birthday": "rJOxY5X",
   "Jordyn's 9th Birthday 2019": "0ve7Az0",
   // 2018
   "Pereira Christmas 2018": "IhQzB2T",
@@ -133,10 +134,13 @@ const allowedAlbums = {
   "Belleville Trip": "4p5Kk",
   "Toronto Global Game Jam 2015": "8OXhc",
   "Jasper's first birthday 2015": "fFb08",
+  "Christina and Laura's birthday": "XHQ5ldt",
   "Shelbie's 30th Birthday": "zNnsrq2",
   // 2014
   "Badlands with Nicole": "00gld",
   "Innisfil 2014": "VXBAU",
+  "Robin's Dirty 30": "WrdQRNe",
+  "Matthew Manna's 30th Birthday": "JHJOx8y",
   "Friendsday Go Karting": "eBf7k",
   "Friendsday Ribsday": "rgEYp",
   "Pancake Party at Nicole's": "TPJD5",
@@ -160,8 +164,7 @@ const allowedAlbums = {
   "Cadillacs and Cadavers at Stones Place": "vDwNE",
   "May 2013 Snapshots": "9A5me",
   "Easter 2013": "rwuzqHi",
-  "Dave's Birthday April 2013": "s9QOb9a",
-  "Bethlehem, Jerusalem, March 2013": "TBkrw8l",
+"Bethlehem, Jerusalem, March 2013": "TBkrw8l",
   "Bethlehem, March 2013": "AeIioRt",
   "Nazareth, Cana, Mount of the Precipice, River Jordan, March 2013": "K6eHz6V",
   "Tiberius, Lake Galilee, March 2013": "xzyPgGK",
@@ -230,6 +233,12 @@ const allowedAlbums = {
   // 2003
   "Dominican Republic 2003": "uKtEcMZ",
   "Jennifer and Kevin's Wedding": "3WUHhg6",
+  // Unsorted
+  "Dave's Birthday": "55wWHSO",
+  "Ryan's Singalong Birthday": "uDBtK1B",
+  "Shelbie Vermette's Birthday at Hacienda": "cUO1CjQ",
+  "Halloween (not a thinly veiled occult gathering)": "42KaGvj",
+  "Jasper Tocker's 2nd Birthday": "lOuDr1w",
 };
 
 export default allowedAlbums;
