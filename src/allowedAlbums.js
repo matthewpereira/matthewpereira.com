@@ -1,6 +1,7 @@
 const allowedAlbums = {
   "base gallery": "6Hpyr",
   // 2022
+  "Big January Snowfall": "TS0tmu9",
   "High Head Trail in Prospect, NS": "8Mu0Nv2",
   "Halifax Oyster Festival": "oC2t9AZ",
   "Sailing and Hot Pot": "JFfL22Y",
