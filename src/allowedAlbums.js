@@ -1,6 +1,8 @@
 const allowedAlbums = {
   "base gallery": "6Hpyr",
   // 2022
+  "Steve and Kristen visit Halifax": "8Riq4uL",
+  "Okta IAM Design Offsite": "Nd8wDwz",
   "Okta Assemble 23 in Mexico": "asGTayC",
   "Big January Snowfall": "TS0tmu9",
   "High Head Trail in Prospect, NS": "8Mu0Nv2",
