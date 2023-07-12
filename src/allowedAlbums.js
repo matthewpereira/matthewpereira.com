@@ -1,6 +1,7 @@
 const allowedAlbums = {
   "base gallery": "6Hpyr",
   // 2022
+  "Ian and Diana's cottage in New Brunswick": "DYKOfBE",
   "Steve and Kristen visit Halifax": "8Riq4uL",
   "Okta IAM Design Offsite": "Nd8wDwz",
   "Bryan and Molly visit Halifax": "FO8aglb",
