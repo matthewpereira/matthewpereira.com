@@ -9,7 +9,7 @@ const AboutPage = () => (
                 Matthew Pereira
             </div>
             <div className={styles.subtitle}>
-                Staff Product Designer at <a href="https://okta.com">okta.com</a>. Formerly Sr. Product Design Lead at <a href="http://vmware.com">VMware</a>.
+                Principal Product Designer at <a href="https://okta.com">okta.com</a>. Formerly Sr. Product Design Lead at <a href="http://vmware.com">VMware</a>.
             </div>
             <div className={styles.subtitle}>
                 <a className={styles.aboutLink} href="https://portfolio.matthewpereira.com/">Visit Product Design Portfolio</a> &nbsp;&nbsp;or&nbsp;&nbsp; <a className={styles.aboutLink} href="https://www.linkedin.com/in/matthewpereira/">Contact at Linkedin</a>
