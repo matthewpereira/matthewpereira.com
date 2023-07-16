@@ -4,6 +4,7 @@ const allowedAlbums = {
   "Ian and Diana's cottage in New Brunswick": "DYKOfBE",
   "Steve and Kristen visit Halifax": "8Riq4uL",
   "Okta IAM Design Offsite": "Nd8wDwz",
+  "Okta IAM Design Offsite - Auth0 photos": "bVZ8QjQ",
   "Bryan and Molly visit Halifax": "FO8aglb",
   "Okta Assemble 23 in Mexico": "asGTayC",
   "Big January Snowfall": "TS0tmu9",
