@@ -41,9 +41,13 @@ const handleScrollKeypress = (event) => {
 
     if (event.code === "ArrowDown") {
         scrollToTarget(amountToScroll - 10);
+    
+        event.preventDefault();
     }
     if (event.code === "ArrowUp") {
         scrollToTarget(amountToScroll - gallerySectionHeight - gallerySectionHeight + 90);
+        
+        event.preventDefault();
     }
 
 }
