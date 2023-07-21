@@ -6,10 +6,10 @@ const findAmountToScroll = (gallerySectionHeight) => {
     const introSectionHeight = window.innerHeight;
 
     // Gallery sections are 110vh
-    const firstGallerySectionHeight = window.innerHeight * 1.1 + 50;
+    const firstGallerySectionHeight = window.innerHeight * 1.1 + 68;
 
     // Find number of gallery sections between first section and current position
-    const scrollMultiplier = Math.round(currentScrollTop / ((window.innerHeight * 1.1 ) + 50)) - 1;
+    const scrollMultiplier = Math.round(currentScrollTop / ((window.innerHeight * 1.1 ) + 77)) - 1;
 
     // If at the top of the doc, just move one screen down
     if (currentScrollTop < introSectionHeight + 10) {
@@ -35,7 +35,7 @@ const findAmountToScroll = (gallerySectionHeight) => {
 const scrollToTarget = (newScrollTop) => document.body.scrollTop = document.documentElement.scrollTop = newScrollTop;
 
 const handleScrollKeypress = (event) => {
-    const gallerySectionHeight = window.innerHeight * 1.1 + 50;
+    const gallerySectionHeight = window.innerHeight * 1.1 + 77;
     
     const amountToScroll = findAmountToScroll(gallerySectionHeight)
 
