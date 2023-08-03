@@ -7,6 +7,7 @@ const allowedAlbums = {
   "Okta IAM Design Offsite": "Nd8wDwz",
   "Okta IAM Design Offsite - Auth0 photos": "bVZ8QjQ",
   "Bryan and Molly visit Halifax": "FO8aglb",
+  "Ronnie visits Halifax": "HtCKDzC",
   "Okta Assemble 23 in Mexico": "asGTayC",
   "Big January Snowfall": "TS0tmu9",
   "High Head Trail in Prospect, NS": "8Mu0Nv2",
