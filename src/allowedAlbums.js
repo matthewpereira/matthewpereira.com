@@ -11,6 +11,7 @@ const allowedAlbums = {
   "Okta Assemble 23 in Mexico": "asGTayC",
   "Big January Snowfall": "TS0tmu9",
   "High Head Trail in Prospect, NS": "8Mu0Nv2",
+  "Visiting Angela at Sunnybrook": "8znM8IH",
   "Halifax Oyster Festival": "oC2t9AZ",
   "Sailing and Hot Pot": "JFfL22Y",
   "Halloween 2022": "IDhZbAb",
